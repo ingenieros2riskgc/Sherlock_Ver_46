@@ -1119,14 +1119,14 @@ namespace ListasSarlaft.UserControls.MAuditoria
             {
                 if (FileUpload1.HasFile)
                 {
-                    if (Path.GetExtension(FileUpload1.FileName).ToLower().ToString().Trim() == ".pdf")
-                    {
+                    /*if (Path.GetExtension(FileUpload1.FileName).ToLower().ToString().Trim() == ".pdf")
+                    {*/
                         mtdCargarPdfGestAudit();
                         GridView100.DataBind();
                         omb.ShowMessage("Archivo cargado exitósamente.", 2, "Atención");
-                    }
+                    /*}
                     else
-                        omb.ShowMessage("Solamente se permiten cargar archivos PDF!", 2, "Atención");
+                        omb.ShowMessage("Solamente se permiten cargar archivos PDF!", 2, "Atención");*/
                 }
                 else
                 {
@@ -2422,7 +2422,7 @@ namespace ListasSarlaft.UserControls.MAuditoria
             {
                 Response.Clear();
                 Response.Buffer = true;
-                Response.ContentType = "Application/pdf";
+                //Response.ContentType = "Application/pdf";
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + strNombreArchivo);
                 Response.Charset = "";
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);

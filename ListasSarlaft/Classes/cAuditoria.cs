@@ -956,7 +956,16 @@ namespace ListasSarlaft.Classes
 
             try
             {
-                strConsulta = string.Format("SELECT [UrlArchivo], [ArchivoPDF] FROM [Auditoria].[Archivo] WHERE [UrlArchivo] = N'{0}'", strNombreArchivo);
+                strConsulta = string.Format("SELECT [UrlArchivo],Archivo " + "\n" +
+                "FROM [Auditoria].[ArchivoHallazgoAuditoria]  WHERE [UrlArchivo] = N'{0}'" + "\n" +
+                "union all" + "\n" +
+                "SELECT a.[UrlArchivo], a.[ArchivoPDF]" + "\n" +
+                "FROM [Auditoria].[Archivo] A " + "\n" +
+                "INNER JOIN Auditoria.Hallazgo B on b.IdHallazgo = a.IdRegistro " + "\n" +
+                "INNER JOIN Auditoria.Auditoria C on c.IdAuditoria = b.IdAuditoria " + "\n" +
+                "INNER JOIN Listas.Usuarios D on D.IdUsuario = a.IdUsuario " + "\n" +
+                "where a.UrlArchivo = N'{0}'", strNombreArchivo);
+                //strConsulta = string.Format("SELECT [UrlArchivo], [ArchivoPDF] FROM [Auditoria].[Archivo] WHERE [UrlArchivo] = N'{0}'", strNombreArchivo);
 
                 cDataBase.mtdConectarSql();
                 bInfo = cDataBase.mtdEjecutarConsultaSqlPdf(strConsulta);
@@ -982,7 +991,16 @@ namespace ListasSarlaft.Classes
 
             try
             {
-                strConsulta = string.Format("SELECT [UrlArchivo], [ArchivoPDF] FROM [Auditoria].[Archivo] WHERE [UrlArchivo] = N'{0}'", strNombreArchivo);
+                strConsulta = string.Format("SELECT [UrlArchivo],Archivo " + "\n" +
+                "FROM [Auditoria].[ArchivoHallazgoAuditoria]  WHERE [UrlArchivo] = N'{0}'" + "\n" +
+                "union all" + "\n" +
+                "SELECT a.[UrlArchivo], a.[ArchivoPDF]" + "\n" +
+                "FROM [Auditoria].[Archivo] A " + "\n" +
+                "INNER JOIN Auditoria.Hallazgo B on b.IdHallazgo = a.IdRegistro " + "\n" +
+                "INNER JOIN Auditoria.Auditoria C on c.IdAuditoria = b.IdAuditoria " + "\n" +
+                "INNER JOIN Listas.Usuarios D on D.IdUsuario = a.IdUsuario " + "\n" +
+                "where a.UrlArchivo = N'{0}'", strNombreArchivo);
+                //strConsulta = string.Format("SELECT [UrlArchivo], [ArchivoPDF] FROM [Auditoria].[Archivo] WHERE [UrlArchivo] = N'{0}'", strNombreArchivo);
 
                 cDataBase.mtdConectarSql();
                 bInfo = cDataBase.mtdEjecutarConsultaSqlPdf(strConsulta);

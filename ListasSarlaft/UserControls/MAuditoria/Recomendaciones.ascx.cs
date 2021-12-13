@@ -840,7 +840,7 @@ namespace ListasSarlaft.UserControls.MAuditoria
             {
                 Response.Clear();
                 Response.Buffer = true;
-                Response.ContentType = "Application/pdf";
+                //Response.ContentType = "Application/pdf";
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + strNombreArchivo);
                 Response.Charset = "";
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);

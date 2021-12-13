@@ -5,7 +5,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>D:\PublicacionesSherlock\Willis\SherlockV4.6_Willis_27-07-2021</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\PublicacionesSherlock\Fedearroz\Fedearroz_23-08-2021</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Archivos/Error/Error.txt">
@@ -24,10 +24,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/18/2020 07:44:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>07/27/2021 08:41:26</publishTime>
+      <publishTime>08/23/2021 13:50:08</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>07/27/2021 08:41:26</publishTime>
+      <publishTime>08/23/2021 13:50:08</publishTime>
     </File>
     <File Include="bin/de/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>03/02/2017 20:25:40</publishTime>
@@ -48,10 +48,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/02/2017 20:25:40</publishTime>
     </File>
     <File Include="bin/DLL.dll">
-      <publishTime>07/27/2021 08:41:27</publishTime>
+      <publishTime>08/23/2021 13:50:09</publishTime>
     </File>
     <File Include="bin/DLL.pdb">
-      <publishTime>07/27/2021 08:41:27</publishTime>
+      <publishTime>08/23/2021 13:50:09</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>09/18/2020 07:44:38</publishTime>
@@ -168,13 +168,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/02/2017 20:25:40</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.dll">
-      <publishTime>07/29/2021 13:36:26</publishTime>
+      <publishTime>08/23/2021 13:50:22</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.pdb">
-      <publishTime>07/29/2021 13:36:26</publishTime>
+      <publishTime>08/23/2021 13:50:22</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.XmlSerializers.dll">
-      <publishTime>07/29/2021 13:36:26</publishTime>
+      <publishTime>08/23/2021 13:50:23</publishTime>
     </File>
     <File Include="bin/Microsoft.MSXML.dll">
       <publishTime>10/22/2009 19:51:18</publishTime>
@@ -2796,7 +2796,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/18/2020 07:54:59</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/27/2021 08:41:36</publishTime>
+      <publishTime>08/23/2021 13:50:25</publishTime>
     </File>
   </ItemGroup>
 </Project>
