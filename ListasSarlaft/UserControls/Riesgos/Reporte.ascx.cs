@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using ListasSarlaft.Classes;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 using ClosedXML;
 using ClosedXML.Excel;
 using System.IO;

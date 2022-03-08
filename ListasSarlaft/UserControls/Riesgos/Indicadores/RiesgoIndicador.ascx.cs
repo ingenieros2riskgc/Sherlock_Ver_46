@@ -1973,7 +1973,12 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
             TextBox10.Text = row.Cells[4].Text;
             txbAñoMeta.Text = row.Cells[5].Text;
             if (row.Cells[6].Text != "" && row.Cells[6].Text != "0" && row.Cells[6].Text != "&nbsp;")
-                ddlMesMetas.SelectedValue = row.Cells[6].Text;
+            {
+                //ddlMesMetas.SelectedValue = row.Cells[6].Text;
+                int index = ddlMesMetas.Items.IndexOf(ddlMesMetas.Items.FindByText(row.Cells[6].Text));
+
+                ddlMesMetas.SelectedIndex = index;
+            }
             else
                 ddlMesMetas.SelectedIndex = 0;
             if (ddlFrecuenciaMedicion.SelectedItem.Text == "Semanal" || ddlFrecuenciaMedicion.SelectedItem.Text == "Quincenal")

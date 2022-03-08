@@ -422,7 +422,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:TabContainer ID="TabContainerIndicadores" runat="server" ActiveTabIndex="4"
+                            <asp:TabContainer ID="TabContainerIndicadores" runat="server" ActiveTabIndex="2"
                                 Font-Names="Calibri" Font-Size="Small" Width="100%">
                                 <ajax:TabPanel ID="TabRiesgos" runat="server" Font-Names="Calibri" Font-Size="Small" HeaderText="Asociación de Riesgos">
                                     <ContentTemplate>
