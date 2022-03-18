@@ -521,14 +521,15 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Controles
         {
             if (ddlTipoReporte.SelectedValue == "1")
             {
+                //string prueba = Session["Jerarquias"].ToString();
                 LoadInfoReporteControles();
-                if (Session["Jerarquias"] != null && Session["Jerarquias"].ToString() == "0")
+                /*if (Session["Jerarquias"] != null && Session["Jerarquias"].ToString() == "0")
                 {
                     dvTablaEfectividad.Visible = false;
                     dvGraficosEficacia.Visible = false;
                     dvJerarquias.Visible = true;
                 }
-                else
+                else*/
                 {
                     dvTablaEfectividad.Visible = true;
                     dvGraficosEficacia.Visible = true;

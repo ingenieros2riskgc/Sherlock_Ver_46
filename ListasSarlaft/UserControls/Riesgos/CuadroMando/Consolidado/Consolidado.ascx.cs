@@ -1570,7 +1570,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                         Chart2.Series["Series1"].Points[points].Label = strMeses[Iteracion].ToString();
                         Chart2.Series["Series1"].Points[points].ToolTip = strMeses[Iteracion].ToString();
                     }
-                    //Chart2.Series["Series2"].Points.AddY(promedioImpacto);
+                    //Chart2.Series["Series2"].Points.AddY(promedioImpIBprocess_Click
+                    //acto);
                     //}
 
                     points++;

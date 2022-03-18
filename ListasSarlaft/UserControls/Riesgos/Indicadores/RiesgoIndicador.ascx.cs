@@ -1965,6 +1965,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
                 TextBox12.Visible = false;
                 txtFrecuenciaAno.Visible = false;
             }
+            
             if (IdFrecuencia == 9)
             {
                 txtFrecuenciaAno.Visible = true;

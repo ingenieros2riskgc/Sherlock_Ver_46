@@ -29,13 +29,16 @@ namespace ListasSarlaft.Classes
             #endregion Variables
             try
             {
-                
-                    strSelect = "SELECT COUNT(IdEvento) as NumEvento, RE.IdEstado,  EE.Descripcion";
+                string fechaIni = objFiltro.dtFechaInicial.ToString("yyyy-MM-dd");
+                string fechaFin = objFiltro.dtFechaFinal.ToString("yyyy-MM-dd");
+
+
+                strSelect = "SELECT COUNT(IdEvento) as NumEvento, RE.IdEstado,  EE.Descripcion";
 
                     strFrom = "FROM [Riesgos].[Eventos] as RE " +
                     "INNER JOIN Eventos.Estado as EE on EE.IdEstado = RE.IdEstado ";
                 if(objFiltro.dtFechaInicial != default(DateTime) && objFiltro.dtFechaFinal != default(DateTime))
-                    strWhere = string.Format(" WHERE (FechaEvento BETWEEN CONVERT(datetime, '{0} 00:00', 120) AND CONVERT(datetime, '{1} 23:59', 120)) ", objFiltro.dtFechaInicial.ToShortDateString(), objFiltro.dtFechaFinal.ToShortDateString());
+                    strWhere = string.Format(" WHERE (FechaEvento BETWEEN CONVERT(datetime, '{0} 00:00', 120) AND CONVERT(datetime, '{1} 23:59', 120)) ", fechaIni, fechaFin);
 
                 strOrder = "GROUP BY RE.IdEstado,EE.Descripcion";
 

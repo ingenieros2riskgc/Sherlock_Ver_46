@@ -138,7 +138,7 @@ namespace ListasSarlaft.Classes
 
                 strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdResponsableMedicion]"+
                 ",[NombreHijo],[IdFrecuenciaMedicion],[FrecuenciaMedicion],[IdRiesgoAsociado],[IdFormula],[Codigo],[Nombre],[IdProbabilidad],[IdImpacto]" +
-                ",[IdCadenaValor],[CadenaValor],[IdMacroproceso],[Macroproceso],[IdProceso],[Proceso],[IdSubProceso],[Subproceso],porcentaje ";
+                ",[IdCadenaValor],[CadenaValor],[IdMacroproceso],[Macroproceso],[IdProceso],[Proceso],[IdSubProceso],[Subproceso],porcentaje,[idMeta] ";
 
                 strFrom = "FROM [Riesgos].[vwCuadroMandoIndicadorJerarquias] ";
 

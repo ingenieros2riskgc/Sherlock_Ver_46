@@ -234,10 +234,15 @@ namespace ListasSarlaft.Classes
                         condicion =
                             string.Format("{0} and [IdArea] = {1}", condicion , objFiltros.intArea.ToString());
                     }
+
+                    
                     #endregion Areas
                     if(TipoReporte == "3")
                     {
-                        condicion = string.Format("{0} and ListaCausas <> '' and ListaCausas <> '0'", condicion, TipoReporte);
+                        DataTable causas = LoadRiescosControlesCusas();
+                        string Causas = causas.Rows[0]["a"].ToString().Trim();
+                        Causas= Causas.TrimEnd(',');
+                        condicion = string.Format("{0} and ListaCausas <> '' and ListaCausas <> '0' AND b.Idcausas not in ({2}) ", condicion, TipoReporte,Causas);
                     }
                     #endregion Filtros de Consulta
                     #region Filtros por Objetivos Estrategicos
@@ -261,10 +266,10 @@ namespace ListasSarlaft.Classes
 
                         strConsulta = string.Format("{0} {1} GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual"
                             + " order by IdProbabilidadResidual, IdImpactoResidual", strSelNormal, strFromNormal);*/
-                        string strSelNormal = string.Format("SELECT [CodigoRiesgo],[NombreRiesgo],[CadenaValor],[IdCadenaValor],[Macroproceso],[IdMacroproceso],[Proceso],[IdProceso],[Subproceso],[IdSubProceso]"
-                + ",[FrecuenciaInherente],[CodigoFrecuenciaInherente],[ImpactoInherente],[CodigoImpactoInherente],[IdProbabilidadResidual],[IdImpactoResidual],[ListaCausas]"
-                + ",[IdRiesgo],[IdArea]");
-                        string strFromNormal = string.Format("FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos] as CMRR {0} {1} ", strFrom, condicion);
+                        string strSelNormal = string.Format("SELECT CMRR.[CodigoRiesgo],CMRR.[NombreRiesgo],CMRR.[CadenaValor],CMRR.[IdCadenaValor],CMRR.[Macroproceso],CMRR.[IdMacroproceso],CMRR.[Proceso],CMRR.[IdProceso],CMRR.[Subproceso],CMRR.[IdSubProceso]"
+                + ",CMRR.[FrecuenciaInherente],CMRR.[CodigoFrecuenciaInherente],CMRR.[ImpactoInherente],CMRR.[CodigoImpactoInherente],CMRR.[IdProbabilidadResidual],CMRR.[IdImpactoResidual],CMRR.[ListaCausas]"
+                + ",CMRR.[IdRiesgo],CMRR.[IdArea]");
+                        string strFromNormal = string.Format("FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos] as CMRR inner join [Riesgos].[RiesgosCausasvsControles] as b on CMRR.IdRiesgo=b.IdRiesgo {0} {1} ", strFrom, condicion);
 
                         strConsulta = string.Format("{0} {1} ", strSelNormal, strFromNormal);
 
@@ -284,7 +289,29 @@ namespace ListasSarlaft.Classes
                 throw new Exception(ex.Message);
             }
             return dtInformacion;
+
+           
+    }
+        public DataTable LoadRiescosControlesCusas()
+        {
+            DataTable dtInformacion = new DataTable();
+            string strConsulta = "SELECT REPLACE(STRING_AGG(REPLACE(REPLACE(RTRIM(ListaCausas),'|',','),',,',','),',0'),',,',',')as a FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos]";
+            try {
+                cDataBase.conectar();
+                dtInformacion = cDataBase.ejecutarConsulta(strConsulta);
+                cDataBase.desconectar();
+            } catch (Exception ex)
+            {
+                cDataBase.desconectar();
+                cError.errorMessage(ex.Message + ", " + ex.StackTrace);
+                throw new Exception(ex.Message);
+
+            }
+
+
+            return dtInformacion;
         }
+
         public DataTable LoadInfoDetalleRiesgo(ref string strErrMsg, int IdProbabilidadResidual, int IdImpactoResidual)
         {
             #region Variables

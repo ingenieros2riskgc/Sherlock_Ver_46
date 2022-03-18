@@ -97,8 +97,10 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Eventos
             //clsDTOCuadroMandoConsolidado cuadroMando = new clsDTOCuadroMandoConsolidado();
             clsDTOCuadroMandoEventosFiltro objFiltros = new clsDTOCuadroMandoEventosFiltro();
             /**********************Filtros de Consulta****************************/
-            if(txbFechaInicial.Text != "")
+            if (txbFechaInicial.Text != "")
+            {
                 objFiltros.dtFechaInicial = Convert.ToDateTime(Sanitizer.GetSafeHtmlFragment(txbFechaInicial.Text));
+            }
             if(txbFechaFinal.Text != "")
                 objFiltros.dtFechaFinal = Convert.ToDateTime(Sanitizer.GetSafeHtmlFragment(txbFechaFinal.Text));
             /**********************Filtros  de Consulta****************************/
