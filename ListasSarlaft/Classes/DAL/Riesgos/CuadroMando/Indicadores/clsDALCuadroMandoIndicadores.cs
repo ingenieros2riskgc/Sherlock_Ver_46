@@ -28,8 +28,8 @@ namespace ListasSarlaft.Classes
             try
             {
 
-                strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdRiesgoAsociado],[IdProbabilidad]"+
-                ",[IdImpacto],[Codigo],[Nombre]";
+                strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdRiesgoAsociado],[IdProbabilidadResidual]"+
+                ",[IdImpactoResidual],[Codigo],[Nombre]";
 
                 strFrom = "FROM [Riesgos].[vwCuadroMandoIndicadorRiesgo]";
 

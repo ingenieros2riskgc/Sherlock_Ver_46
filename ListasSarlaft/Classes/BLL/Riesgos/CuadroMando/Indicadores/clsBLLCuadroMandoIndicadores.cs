@@ -31,9 +31,9 @@ namespace ListasSarlaft.Classes
                         objReporte.strNombreIndicador = dr["NombreIndicador"].ToString().Trim();
                         objReporte.strObjetivoIndicador = dr["ObjetivoIndicador"].ToString().Trim();
                         objReporte.intIdRiesgoAsociado = Convert.ToInt32(dr["IdRiesgoAsociado"].ToString().Trim());
-                        objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim());
-                        objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpacto"].ToString().Trim());
-                        objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim()), Convert.ToInt32(dr["IdImpacto"].ToString().Trim()));
+                        objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim());
+                        objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim());
+                        objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim()), Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim()));
                         if (objReporte.strNombreRiesgo == "Extremo")
                             objReporte.strColor = "Rojo";
                         if (objReporte.strNombreRiesgo == "Alto")
