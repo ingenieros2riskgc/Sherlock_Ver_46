@@ -96,10 +96,6 @@ D:\Workspace\Sherlock\Fuentes\Ver4.6\ListasSarlaft\obj\Debug\RdlCompile.compiled
 D:\Workspace\Sherlock\Fuentes\Ver4.6\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.CopyComplete
 D:\Workspace\Sherlock\Fuentes\Ver4.6\ListasSarlaft\obj\Debug\ListasSarlaft.dll
 D:\Workspace\Sherlock\Fuentes\Ver4.6\ListasSarlaft\obj\Debug\ListasSarlaft.pdb
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.AssemblyReference.cache
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.CoreCompileInputs.cache
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.dll
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\SqlServerTypes\x64\msvcr120.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\SqlServerTypes\x86\msvcr120.dll
@@ -138,8 +134,6 @@ C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\std
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DAL.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DTO.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DLL.pdb
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\AntiXSSLibrary.xml
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\HtmlSanitizationLibrary.xml
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\EnvDTE.xml
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\de\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\es\Microsoft.ReportViewer.Common.resources.dll
@@ -213,4 +207,8 @@ C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\zh-
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\zh-HANS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.AssemblyReference.cache
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.CopyComplete
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.dll
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.pdb

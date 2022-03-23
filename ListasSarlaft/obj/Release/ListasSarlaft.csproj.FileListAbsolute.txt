@@ -166,8 +166,6 @@ C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\std
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DAL.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DTO.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\DLL.pdb
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\AntiXSSLibrary.xml
-C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\HtmlSanitizationLibrary.xml
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\EnvDTE.xml
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\de\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\bin\es\Microsoft.ReportViewer.Common.resources.dll

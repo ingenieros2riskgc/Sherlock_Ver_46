@@ -115,6 +115,22 @@ div.ajax__calendar_container{width: 225px;}
                         </td>
                         <td></td>
                     </tr>
+                    <tr runat="server" id="trJerarquia2" visible="false">
+                        <td class="RowsText">
+                            <asp:Label runat="server" ID="lblJerarquia2">Jerarquia Organizacional</asp:Label>
+                        </td>
+                        <td align="center">
+                             <asp:DropDownList ID="ddlJerarquiaO2" runat="server" Width="300px"
+                                                CssClass="Apariencia" AutoPostBack="True"
+                                                DataTextField="NombreCadenaValor" DataValueField="IdCadenaValor"
+                                                OnSelectedIndexChanged="cbJerarquia_SelectedIndexChanged">
+                                                
+                             </asp:DropDownList>
+                     
+                        </td>
+                        <td></td>
+
+                    </tr>
                     <tr>
                         <td colspan="3" class="RowsText">
                             <asp:Label runat="server" ID="lblTextoProcess" Text="Haz click en el botón para generar el Reporte:"></asp:Label>
