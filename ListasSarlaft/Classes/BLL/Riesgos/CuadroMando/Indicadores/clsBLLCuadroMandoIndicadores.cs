@@ -182,46 +182,55 @@ namespace ListasSarlaft.Classes
             {
                 if (dtInfo.Rows.Count > 0)
                 {
-                    foreach (DataRow dr in dtInfo.Rows)
-                    {
-                        string Descripcion = string.Empty;
-                        string color = string.Empty;
-                        double resultFormula = 0;
-                        clsDTOCuadroMandoIndicadores objReporte = new clsDTOCuadroMandoIndicadores();
-                        objReporte.intIdRiesgoIndicador = Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim());
-                        objReporte.strNombreIndicador = dr["NombreIndicador"].ToString().Trim();
-                        objReporte.strObjetivoIndicador = dr["ObjetivoIndicador"].ToString().Trim();
-                        objReporte.strResponsable = dr["NombreHijo"].ToString().Trim();
-                        objReporte.intIdRiesgoAsociado = Convert.ToInt32(dr["IdRiesgoAsociado"].ToString().Trim());
-                        objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim());
-                        objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpacto"].ToString().Trim());
-                        objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim()), Convert.ToInt32(dr["IdImpacto"].ToString().Trim()));
-                        objReporte.strCadenaValor = dr["CadenaValor"].ToString().Trim();
-                        objReporte.strMacroproceso = dr["Macroproceso"].ToString().Trim();
-                        objReporte.strProceso = dr["Proceso"].ToString().Trim();
-                        objReporte.strSubproceso = dr["Subproceso"].ToString().Trim();
-                        if (Convert.ToBoolean(dr["porcentaje"].ToString().Trim()) == true)
-                            objReporte.booPorcentaje = 1;
-                        else
-                            objReporte.booPorcentaje = 0;
-                        lstDetalle = cFormula.mtdConsultarDetalleFormula(booResult, ref strErrMsg, Convert.ToInt32(dr["IdFormula"].ToString().Trim()));
-                        lstMetas = cMetas.mtdConsultarMetaRiesgoIndicadorxMeta(booResult, ref strErrMsg, Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()), Convert.ToInt32(dr["IdMeta"].ToString().Trim()));
-                        if (lstMetas != null)
+                    try {
+                        foreach (DataRow dr in dtInfo.Rows)
                         {
-                            foreach (clsDTOmetasRiesgoIndicador objMetas in lstMetas)
+                            string Descripcion = string.Empty;
+                            string color = string.Empty;
+                            double resultFormula = 0;
+                            clsDTOCuadroMandoIndicadores objReporte = new clsDTOCuadroMandoIndicadores();
+                            objReporte.intIdRiesgoIndicador = Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim());
+                            objReporte.strNombreIndicador = dr["NombreIndicador"].ToString().Trim();
+                            objReporte.strObjetivoIndicador = dr["ObjetivoIndicador"].ToString().Trim();
+                            objReporte.strResponsable = dr["NombreHijo"].ToString().Trim();
+                            objReporte.intIdRiesgoAsociado = Convert.ToInt32(dr["IdRiesgoAsociado"].ToString().Trim());
+                            objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim());
+                            objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpacto"].ToString().Trim());
+                            objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim()), Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim()));
+                            objReporte.strCadenaValor = dr["CadenaValor"].ToString().Trim();
+                            objReporte.strMacroproceso = dr["Macroproceso"].ToString().Trim();
+                            objReporte.strProceso = dr["Proceso"].ToString().Trim();
+                            objReporte.strSubproceso = dr["Subproceso"].ToString().Trim();
+                            if (Convert.ToBoolean(dr["porcentaje"].ToString().Trim()) == true)
+                                objReporte.booPorcentaje = 1;
+                            else
+                                objReporte.booPorcentaje = 0;
+                            lstDetalle = cFormula.mtdConsultarDetalleFormula(booResult, ref strErrMsg, Convert.ToInt32(dr["IdFormula"].ToString().Trim()));
+                            lstMetas = cMetas.mtdConsultarMetaRiesgoIndicadorxMeta(booResult, ref strErrMsg, Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()), Convert.ToInt32(dr["IdMeta"].ToString().Trim()));
+                            if (lstMetas != null)
                             {
-                                booResutl = proceso.mtdValidateMeta(ref resultFormula, objMetas.strValorOtraFrecuencia, 
-                                    objMetas.intIdDetalleFrecuencia, objMetas.strAño, objMetas.strMes, lstDetalle, 
-                                    Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()), objReporte.booPorcentaje);
+                                foreach (clsDTOmetasRiesgoIndicador objMetas in lstMetas)
+                                {
+                                    booResutl = proceso.mtdValidateMeta(ref resultFormula, objMetas.strValorOtraFrecuencia,
+                                        objMetas.intIdDetalleFrecuencia, objMetas.strAño, objMetas.strMes, lstDetalle,
+                                        Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()), objReporte.booPorcentaje);
+                                }
                             }
+                            objRiesgoIndicador.dblResultado = resultFormula;
+                            lstSeguimiento = cSeguimiento.mtdConsultarSeguimientoIndicador(booResult, ref strErrMsg, Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()));
+                            if (lstSeguimiento != null)
+                                Descripcion = proceso.mtdValidaSeguimiento(resultFormula, lstSeguimiento, ref color);
+                            objReporte.strColor = color;
+                            lstInfo.Add(objReporte);
                         }
-                        objRiesgoIndicador.dblResultado = resultFormula;
-                        lstSeguimiento = cSeguimiento.mtdConsultarSeguimientoIndicador(booResult, ref strErrMsg, Convert.ToInt32(dr["IdRiesgoIndicador"].ToString().Trim()));
-                        if (lstSeguimiento != null)
-                            Descripcion = proceso.mtdValidaSeguimiento(resultFormula, lstSeguimiento, ref color);
-                        objReporte.strColor = color;
-                        lstInfo.Add(objReporte);
                     }
+                    catch (Exception ex)
+                    {
+                        strErrMsg = string.Format("Por favor validar Data, todos Indicadores deben tener metas", ex.Message);
+                        lstInfo = null;
+                        return false;
+                    }
+                   
                     booResult = true;
                 }
                 else

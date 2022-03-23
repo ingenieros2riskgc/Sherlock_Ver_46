@@ -6683,3 +6683,9 @@ Sintaxis incorrecta cerca de ')'.,    en System.Data.OleDb.OleDbCommand.ExecuteC
    en ListasSarlaft.Classes.cDataBase.ejecutarConsulta(String txtQuery)
    en ListasSarlaft.Classes.cCuenta.permisosConsulta(String IdFormulario)
 17/03/2022 3:28:41 p. m.
+La conexión no se cerró. El estado actual de la conexión es abierta.,    en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.OleDb.OleDbConnection.Open()
+   en ListasSarlaft.Classes.cDataBase.conectar()
+   en ListasSarlaft.Classes.clsDALCuadroMandoIndicadores.LoadInfoReporteIndicadoresRiesgos(String& strErrMsg)
+22/03/2022 9:43:46 a. m.

@@ -69,6 +69,24 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
                 System.Data.DataTable dtblDiscuss = new System.Data.DataTable();
                 dad.Fill(dtblDiscuss);
                 cbJerarquia.DataSource = dtblDiscuss;
+
+                ddlJerarquiaO2.Items.Clear();
+                ddlJerarquiaO2.Items.Insert(0, new System.Web.UI.WebControls.ListItem("", "-1"));
+
+                if (dtblDiscuss.Rows.Count > 0)
+                {
+
+                    int intCounter = 1;
+
+                    foreach (DataRow dt in dtblDiscuss.Rows)
+                    {
+                        ddlJerarquiaO2.Items.Insert(intCounter, new System.Web.UI.WebControls.ListItem(dt["NombreHijo"].ToString().Trim(), dt["IdHijo"].ToString().Trim()));
+                        intCounter++;
+                    }
+
+
+                }
+
                 cbJerarquia.DataValueField = "IdHijo";
                 cbJerarquia.DataTextField = "NombreHijo";
                 cbJerarquia.DataBind();
@@ -336,7 +354,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
             if(ddlTipoReporte.SelectedValue == "1")
             {
                 trEfectividad.Visible = true;
-                trJerarquia.Visible = false;
+               // trJerarquia.Visible = false;
+                trJerarquia2.Visible = false;
                 CadenaValor.Visible = false;
                 Macroproceso.Visible = false;
                 Proceso.Visible = false;
@@ -345,7 +364,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
             if(ddlTipoReporte.SelectedValue == "2")
             {
                 trEfectividad.Visible = false;
-                trJerarquia.Visible = true;
+                //trJerarquia.Visible = true;
+                trJerarquia2.Visible = true;
                 CadenaValor.Visible = true;
                 Macroproceso.Visible = true;
                 Proceso.Visible = true;
@@ -500,15 +520,17 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
                 objFiltros.intIdSubproceso = Convert.ToInt32(ddlSubproceso.SelectedValue);
             else
                 objFiltros.intIdSubproceso = 0;
-            for (int i = 0; i < cbJerarquia.Items.Count; i++)
-            {
-                if (cbJerarquia.Items[i].Selected)
-                {
-                    objFiltros.strJerarquia = objFiltros.strJerarquia + "," + cbJerarquia.Items[i].Value;
-                }
-            }
-            /**********************Filtros  de Consulta****************************/
-            booResult = cCuadroRiesgos.LoadInfoReporteIndicadoresProceso(ref strErrMgs, ref lstReporte, objFiltros);
+            //for (int i = 0; i < cbJerarquia.Items.Count; i++)
+            //{
+            //    if (cbJerarquia.Items[i].Selected)
+            //    {
+            //        objFiltros.strJerarquia = objFiltros.strJerarquia + "," + cbJerarquia.Items[i].Value;
+            //    }
+            //}
+            objFiltros.strJerarquia = objFiltros.strJerarquia + "," + ddlJerarquiaO2.SelectedValue.ToString().Trim();
+
+           /**********************Filtros  de Consulta****************************/
+           booResult = cCuadroRiesgos.LoadInfoReporteIndicadoresProceso(ref strErrMgs, ref lstReporte, objFiltros);
             //string ListaEficacia = string.Empty;
 
             if (lstReporte != null)
@@ -606,8 +628,9 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
                     IdJerarquia += cbJerarquia.Items[i].Value+",";
                 }
             }
+            string IdJerarquia2 = ddlJerarquiaO2.SelectedValue.ToString().Trim() + ",";
             /**********************Filtros  de Consulta****************************/
-            booResult = cCuadroRiesgos.LoadInfoReporteIndicadorResponsable(ref strErrMgs, ref lstReporte, IdJerarquia);
+            booResult = cCuadroRiesgos.LoadInfoReporteIndicadorResponsable(ref strErrMgs, ref lstReporte, IdJerarquia2);
             //string ListaEficacia = string.Empty;
 
             if (lstReporte != null)
@@ -763,8 +786,9 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
                 }
                     else
                 {
-                    if(cbJerarquia.SelectedValue != "")
+                    if(ddlJerarquiaO2.SelectedValue != "-1")
                     {
+                       
                         if (!LoadInfoReporteIndicadorResponsable(ref strErrMgs))
                             omb.ShowMessage(strErrMgs, 2, "Atención");
                         else

@@ -4,11 +4,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicacion 18 marzo version 4.6</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicacion 22 marzo</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Archivos/Error/Error.txt">
-      <publishTime>03/17/2022 15:28:41</publishTime>
+      <publishTime>03/22/2022 09:43:46</publishTime>
     </File>
     <File Include="BDupdate/CambiosBD_V2.xlsx">
       <publishTime>03/07/2022 14:43:20</publishTime>
@@ -167,13 +167,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.dll">
-      <publishTime>03/18/2022 10:34:41</publishTime>
+      <publishTime>03/22/2022 09:54:21</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.pdb">
-      <publishTime>03/18/2022 10:34:41</publishTime>
+      <publishTime>03/22/2022 09:54:21</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.XmlSerializers.dll">
-      <publishTime>03/18/2022 10:34:44</publishTime>
+      <publishTime>03/22/2022 09:54:23</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>

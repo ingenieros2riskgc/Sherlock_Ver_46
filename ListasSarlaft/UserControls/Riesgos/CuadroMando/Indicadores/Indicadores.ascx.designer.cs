@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
-    
-    
-    public partial class Indicadores {
-        
+namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
+{
+
+
+    public partial class Indicadores
+    {
+
         /// <summary>
         /// Control RiesgosBody.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel RiesgosBody;
-        
+
         /// <summary>
         /// Control omb.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::ListasSarlaft.UserControls.Sitio.OKMessageBox omb;
-        
+
         /// <summary>
         /// Control HeadIndicadores.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeadIndicadores;
-        
+
         /// <summary>
         /// Control Ltitulo.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Ltitulo;
-        
+
         /// <summary>
         /// Control BodyFormCPNC.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BodyFormCPNC;
-        
+
         /// <summary>
         /// Control lblTipoReporte.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoReporte;
-        
+
         /// <summary>
         /// Control ddlTipoReporte.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoReporte;
-        
+
         /// <summary>
         /// Control rfvTipoReporte.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipoReporte;
-        
+
         /// <summary>
         /// Control CadenaValor.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow CadenaValor;
-        
+
         /// <summary>
         /// Control Label19.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label19;
-        
+
         /// <summary>
         /// Control ddlCadenaValor.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCadenaValor;
-        
+
         /// <summary>
         /// Control tbxProcIndica.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbxProcIndica;
-        
+
         /// <summary>
         /// Control LtexProceso.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LtexProceso;
-        
+
         /// <summary>
         /// Control Macroproceso.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Macroproceso;
-        
+
         /// <summary>
         /// Control Label22.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label22;
-        
+
         /// <summary>
         /// Control ddlMacroproceso.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMacroproceso;
-        
+
         /// <summary>
         /// Control Proceso.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Proceso;
-        
+
         /// <summary>
         /// Control Label7.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-        
+
         /// <summary>
         /// Control ddlProceso.
         /// </summary>
@@ -182,7 +184,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProceso;
-        
+
         /// <summary>
         /// Control Subproceso.
         /// </summary>
@@ -191,7 +193,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Subproceso;
-        
+
         /// <summary>
         /// Control Label8.
         /// </summary>
@@ -200,7 +202,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-        
+
         /// <summary>
         /// Control ddlSubproceso.
         /// </summary>
@@ -209,7 +211,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSubproceso;
-        
+
         /// <summary>
         /// Control trEfectividad.
         /// </summary>
@@ -218,7 +220,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trEfectividad;
-        
+
         /// <summary>
         /// Control lblEfectividades.
         /// </summary>
@@ -227,7 +229,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEfectividades;
-        
+
         /// <summary>
         /// Control cblEfectividades.
         /// </summary>
@@ -236,7 +238,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList cblEfectividades;
-        
+
         /// <summary>
         /// Control trJerarquia.
         /// </summary>
@@ -245,7 +247,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trJerarquia;
-        
+
         /// <summary>
         /// Control lblJerarquia.
         /// </summary>
@@ -254,7 +256,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblJerarquia;
-        
+
         /// <summary>
         /// Control cbJerarquia.
         /// </summary>
@@ -263,7 +265,34 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList cbJerarquia;
-        
+
+        /// <summary>
+        /// Control trJerarquia2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trJerarquia2;
+
+        /// <summary>
+        /// Control lblJerarquia2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJerarquia2;
+
+        /// <summary>
+        /// Control ddlJerarquiaO2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlJerarquiaO2;
+
         /// <summary>
         /// Control lblTextoProcess.
         /// </summary>
@@ -272,7 +301,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTextoProcess;
-        
+
         /// <summary>
         /// Control IBprocess.
         /// </summary>
@@ -281,7 +310,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton IBprocess;
-        
+
         /// <summary>
         /// Control ImbClean.
         /// </summary>
@@ -290,7 +319,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImbClean;
-        
+
         /// <summary>
         /// Control Dbutton.
         /// </summary>
@@ -299,7 +328,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Dbutton;
-        
+
         /// <summary>
         /// Control ImButtonPDFexport.
         /// </summary>
@@ -308,7 +337,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImButtonPDFexport;
-        
+
         /// <summary>
         /// Control ImButtonExcelExport.
         /// </summary>
@@ -317,7 +346,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImButtonExcelExport;
-        
+
         /// <summary>
         /// Control ImbCancel.
         /// </summary>
@@ -326,7 +355,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImbCancel;
-        
+
         /// <summary>
         /// Control dvTablaIndicadorRiesgo.
         /// </summary>
@@ -335,7 +364,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvTablaIndicadorRiesgo;
-        
+
         /// <summary>
         /// Control GVindicadorRiesgo.
         /// </summary>
@@ -344,7 +373,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVindicadorRiesgo;
-        
+
         /// <summary>
         /// Control dvGraficoIndicadorRiesgo.
         /// </summary>
@@ -353,7 +382,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvGraficoIndicadorRiesgo;
-        
+
         /// <summary>
         /// Control ChartIndicadorRiesgo.
         /// </summary>
