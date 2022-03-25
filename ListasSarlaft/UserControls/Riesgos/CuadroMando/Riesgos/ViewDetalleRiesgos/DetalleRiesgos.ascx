@@ -2,7 +2,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <%@ Register Src="~/UserControls/Sitio/OkMessageBox.ascx" TagPrefix="uc" TagName="OkMessageBox" %>
 <link href="../../../../../Styles/AdminSitio.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
+<script src="../../../../../Scripts/DownloadJquery.js"></script>
 <script type="text/javascript">
     function fnClick(sender, e) {
         __doPostBack(sender, e);
@@ -114,7 +115,7 @@ div.ajax__calendar_container{width: 225px;}
                                         </ItemTemplate>
                                             </asp:TemplateField>
                                         
-                                        <asp:BoundField DataField="CausasSinControl" HeaderText="Causas Sin Control" SortExpression="CausasSinControl" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="CausasSinControl" HeaderText="Causas Sin Control" SortExpression="CausasSinControl" ItemStyle-HorizontalAlign="Center" Visible="false" />
                                         
                                         </Columns>
                                     <EditRowStyle BackColor="#999999" />

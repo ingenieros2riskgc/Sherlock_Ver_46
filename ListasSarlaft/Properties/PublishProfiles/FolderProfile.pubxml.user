@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicaicon 46- 23 marzo</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicacion v56- 25 marzo</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Archivos/Error/Error.txt">
@@ -23,10 +23,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>03/18/2022 10:34:34</publishTime>
+      <publishTime>03/25/2022 15:59:46</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>03/18/2022 10:34:34</publishTime>
+      <publishTime>03/25/2022 15:59:46</publishTime>
     </File>
     <File Include="bin/de/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>
@@ -47,10 +47,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/DLL.dll">
-      <publishTime>03/18/2022 10:34:35</publishTime>
+      <publishTime>03/25/2022 15:59:46</publishTime>
     </File>
     <File Include="bin/DLL.pdb">
-      <publishTime>03/18/2022 10:34:35</publishTime>
+      <publishTime>03/25/2022 15:59:46</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>03/07/2022 14:43:21</publishTime>
@@ -167,13 +167,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.dll">
-      <publishTime>03/23/2022 15:28:59</publishTime>
+      <publishTime>03/25/2022 15:59:51</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.pdb">
-      <publishTime>03/23/2022 15:28:59</publishTime>
+      <publishTime>03/25/2022 15:59:51</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.XmlSerializers.dll">
-      <publishTime>03/23/2022 15:29:02</publishTime>
+      <publishTime>03/25/2022 15:59:53</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>
@@ -1873,6 +1873,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/DiagramCommon.js">
       <publishTime>03/07/2022 14:43:20</publishTime>
     </File>
+    <File Include="Scripts/DownloadJquery.js">
+      <publishTime>03/25/2022 15:41:05</publishTime>
+    </File>
     <File Include="Scripts/jquery-1.4.1-vsdoc.js">
       <publishTime>03/07/2022 14:43:20</publishTime>
     </File>
@@ -2084,7 +2087,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="UserControls/Eventos/Eventos.ascx">
-      <publishTime>03/07/2022 14:43:21</publishTime>
+      <publishTime>03/25/2022 15:54:30</publishTime>
     </File>
     <File Include="UserControls/Eventos/EventosVsUsuario.ascx">
       <publishTime>03/07/2022 14:43:21</publishTime>
@@ -2513,7 +2516,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Controles/ViewDetalleControl/ViewDetalleControl.ascx">
-      <publishTime>03/07/2022 14:43:21</publishTime>
+      <publishTime>03/25/2022 15:54:30</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/CuadroMando.ascx">
       <publishTime>03/07/2022 14:43:21</publishTime>
@@ -2525,13 +2528,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/23/2022 09:48:20</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Indicadores/ViewDetalleIndicador/ViewDetalleIndicador.ascx">
-      <publishTime>03/23/2022 15:42:37</publishTime>
+      <publishTime>03/25/2022 15:43:49</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Riesgos/Riesgos.ascx">
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Riesgos/ViewDetalleRiesgos/DetalleRiesgos.ascx">
-      <publishTime>03/07/2022 14:43:21</publishTime>
+      <publishTime>03/25/2022 15:54:31</publishTime>
     </File>
     <File Include="UserControls/Riesgos/Cumplimiento.ascx">
       <publishTime>03/07/2022 14:43:21</publishTime>

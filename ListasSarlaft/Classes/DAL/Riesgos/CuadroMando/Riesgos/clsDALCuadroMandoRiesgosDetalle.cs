@@ -266,7 +266,7 @@ namespace ListasSarlaft.Classes
 
                         strConsulta = string.Format("{0} {1} GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual"
                             + " order by IdProbabilidadResidual, IdImpactoResidual", strSelNormal, strFromNormal);*/
-                        string strSelNormal = string.Format("SELECT CMRR.[CodigoRiesgo],CMRR.[NombreRiesgo],CMRR.[CadenaValor],CMRR.[IdCadenaValor],CMRR.[Macroproceso],CMRR.[IdMacroproceso],CMRR.[Proceso],CMRR.[IdProceso],CMRR.[Subproceso],CMRR.[IdSubProceso]"
+                        string strSelNormal = string.Format("SELECT distinct CMRR.[CodigoRiesgo],CMRR.[NombreRiesgo],CMRR.[CadenaValor],CMRR.[IdCadenaValor],CMRR.[Macroproceso],CMRR.[IdMacroproceso],CMRR.[Proceso],CMRR.[IdProceso],CMRR.[Subproceso],CMRR.[IdSubProceso]"
                 + ",CMRR.[FrecuenciaInherente],CMRR.[CodigoFrecuenciaInherente],CMRR.[ImpactoInherente],CMRR.[CodigoImpactoInherente],CMRR.[IdProbabilidadResidual],CMRR.[IdImpactoResidual],CMRR.[ListaCausas]"
                 + ",CMRR.[IdRiesgo],CMRR.[IdArea]");
                         string strFromNormal = string.Format("FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos] as CMRR inner join [Riesgos].[RiesgosCausasvsControles] as b on CMRR.IdRiesgo=b.IdRiesgo {0} {1} ", strFrom, condicion);
