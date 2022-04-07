@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
-    
-    
-    public partial class SeguimientoRiesgoIndicador {
-        
+namespace ListasSarlaft.UserControls.Riesgos.Seguimiento
+{
+
+
+    public partial class SeguimientoRiesgoIndicador
+    {
+
         /// <summary>
         /// Control SRIbody.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel SRIbody;
-        
+
         /// <summary>
         /// Control omb.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::ListasSarlaft.UserControls.Sitio.OKMessageBox omb;
-        
+
         /// <summary>
         /// Control HeadSRI.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeadSRI;
-        
+
         /// <summary>
         /// Control Ltitulo.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Ltitulo;
-        
+
         /// <summary>
         /// Control BodyFormSRI.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BodyFormSRI;
-        
+
         /// <summary>
         /// Control lblRiesgo.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRiesgo;
-        
+
         /// <summary>
         /// Control txbRiesgo.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbRiesgo;
-        
+
         /// <summary>
         /// Control lblFactor.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFactor;
-        
+
         /// <summary>
         /// Control ddlFactorRiesgo.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFactorRiesgo;
-        
+
         /// <summary>
         /// Control Label19.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label19;
-        
+
         /// <summary>
         /// Control ddlCadenaValor.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCadenaValor;
-        
+
         /// <summary>
         /// Control Label22.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label22;
-        
+
         /// <summary>
         /// Control ddlMacroproceso.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMacroproceso;
-        
+
         /// <summary>
         /// Control Label7.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-        
+
         /// <summary>
         /// Control ddlProceso.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProceso;
-        
+
         /// <summary>
         /// Control Label8.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-        
+
         /// <summary>
         /// Control ddlSubproceso.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSubproceso;
-        
+
         /// <summary>
         /// Control Lresponsable.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lresponsable;
-        
+
         /// <summary>
         /// Control tbxResponsable.
         /// </summary>
@@ -182,7 +184,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbxResponsable;
-        
+
         /// <summary>
         /// Control lblIdDependencia4.
         /// </summary>
@@ -191,7 +193,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdDependencia4;
-        
+
         /// <summary>
         /// Control imgDependencia4.
         /// </summary>
@@ -200,7 +202,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgDependencia4;
-        
+
         /// <summary>
         /// Control popupDependencia4.
         /// </summary>
@@ -209,7 +211,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.PopupControlExtender popupDependencia4;
-        
+
         /// <summary>
         /// Control pnlDependencia4.
         /// </summary>
@@ -218,7 +220,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlDependencia4;
-        
+
         /// <summary>
         /// Control btnClosepp4.
         /// </summary>
@@ -227,7 +229,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnClosepp4;
-        
+
         /// <summary>
         /// Control TreeView4.
         /// </summary>
@@ -236,7 +238,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TreeView TreeView4;
-        
+
         /// <summary>
         /// Control BtnOk4.
         /// </summary>
@@ -245,7 +247,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnOk4;
-        
+
         /// <summary>
         /// Control IBconsultar.
         /// </summary>
@@ -254,7 +256,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton IBconsultar;
-        
+
         /// <summary>
         /// Control IBcancel.
         /// </summary>
@@ -263,7 +265,16 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton IBcancel;
-        
+
+        /// <summary>
+        /// Control ImageButton2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+
         /// <summary>
         /// Control dvGirdData.
         /// </summary>
@@ -272,7 +283,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvGirdData;
-        
+
         /// <summary>
         /// Control GVseguimientoRiesgoInsicador.
         /// </summary>

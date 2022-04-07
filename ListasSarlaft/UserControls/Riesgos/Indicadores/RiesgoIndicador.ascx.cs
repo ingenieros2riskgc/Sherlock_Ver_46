@@ -65,6 +65,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
         private DataTable infoGridRiesgoIndicador;
         private int rowGridRiesgoIndicador;
         private int pagIndexRiesgoIndicador;
+        private int pagIndexDefinicionMetas;
 
         private DataTable InfoGridRiesgoIndicador
         {
@@ -105,6 +106,20 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
             {
                 pagIndexRiesgoIndicador = value;
                 ViewState["pagIndexRiesgoIndicador"] = pagIndexRiesgoIndicador;
+            }
+        }
+
+        private int PagIndexDefinicionMetas
+        {
+            get
+            {
+                pagIndexDefinicionMetas = (int)ViewState["pagIndexDefinicionMetas"];
+                return pagIndexDefinicionMetas;
+            }
+            set
+            {
+                pagIndexDefinicionMetas = value;
+                ViewState["pagIndexDefinicionMetas"] = pagIndexDefinicionMetas;
             }
         }
 
@@ -692,6 +707,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
         private void mtdInicializarValores()
         {
             PagIndexRiesgoIndicador = 0;
+            PagIndexDefinicionMetas = 0;
             //PagIndex = 0;
             //txtFecha.Text = "" + DateTime.Now;
             //PagIndex3 = 0;
@@ -3483,6 +3499,16 @@ namespace ListasSarlaft.UserControls.Riesgos.Indicadores
             GVevaluacionDesempeño.DataBind();*/
             string strErrMsg = "";
             mtdLoadRiesgosIndicadores(ref strErrMsg);
+        }
+      
+
+           protected void GridViewMetas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            pagIndexMetaRiesgoIndicador = e.NewPageIndex;
+            /*GVevaluacionDesempeño.PageIndex = PagIndex1;
+            GVevaluacionDesempeño.DataBind();*/
+            string strErrMsg = "";
+            mtdLoadMetasRiesgosIndicadores(ref strErrMsg);
         }
 
         protected void ImButtonPDFexport_Click(object sender, ImageClickEventArgs e)

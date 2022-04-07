@@ -212,3 +212,5 @@ C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Deb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.csproj.CopyComplete
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\ListasSarlaft.pdb
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Debug\RdlCompile.compiled

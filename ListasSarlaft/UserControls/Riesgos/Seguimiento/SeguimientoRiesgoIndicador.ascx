@@ -135,6 +135,11 @@ div.ajax__calendar_container{width: 225px;}
                                                             ToolTip="Cancelar" OnClick="IBcancel_Click" ></asp:ImageButton>
                                                     </td>
                                                 </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/Icons/excel.png" onclick="GenerarReporte_Click" ToolTip="Exportar a Excel" />
+                                                </td>
+                    </tr>
                                             </table>
             </div>
             
@@ -272,4 +277,8 @@ div.ajax__calendar_container{width: 225px;}
                 </table>
             </div>
         </ContentTemplate>
+        <Triggers>
+        <asp:PostBackTrigger ControlID="ImageButton2" />
+
+    </Triggers>
     </asp:UpdatePanel>

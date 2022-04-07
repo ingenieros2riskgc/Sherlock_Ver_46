@@ -115,7 +115,7 @@ div.ajax__calendar_container{width: 225px;}
                                         </ItemTemplate>
                                             </asp:TemplateField>
                                         
-                                        <asp:BoundField DataField="CausasSinControl" HeaderText="Causas Sin Control" SortExpression="CausasSinControl" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="CausasSinControl" HeaderText="Causas Sin Control" SortExpression="CausasSinControl" ItemStyle-HorizontalAlign="Center" Visible="false" />
                                         
                                         </Columns>
                                     <EditRowStyle BackColor="#999999" />
