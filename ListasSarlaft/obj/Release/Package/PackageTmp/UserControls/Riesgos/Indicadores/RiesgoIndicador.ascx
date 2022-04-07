@@ -708,7 +708,7 @@
                                                             <td id="Td56" runat="server">
                                                                 <asp:GridView ID="GridViewMetas" runat="server" AllowPaging="True" AutoGenerateColumns="False" 
                                                                     BorderStyle="Solid" CellPadding="4" DataKeyNames="intIdMeta" Font-Names="Calibri" Font-Size="Small" ForeColor="#333333" 
-                                                                    GridLines="Vertical" OnRowCommand="GridViewMetas_RowCommand" PageSize="6" ShowHeaderWhenEmpty="True" OnPreRender="GridViewMetas_PreRender">
+                                                                    GridLines="Vertical" OnRowCommand="GridViewMetas_RowCommand" PageSize="6" ShowHeaderWhenEmpty="True" OnPreRender="GridViewMetas_PreRender" OnPageIndexChanging="GridViewMetas_PageIndexChanging">
                                                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                                     <Columns>
                                                                         <asp:BoundField DataField="intIdRiesgoIndicador" HeaderText="Id" Visible="False" />
@@ -734,8 +734,8 @@
                                                                         <asp:BoundField DataField="dblMeta" HeaderText="Meta">
                                                                         <ItemStyle HorizontalAlign="Right" />
                                                                         </asp:BoundField>
-                                                                        <asp:BoundField DataField="strAño" HeaderText="Año" HtmlEncode="false" />
-                                                                        <asp:BoundField DataField="strMes" HeaderText="Mes" HtmlEncode="false" />
+                                                                        <asp:BoundField DataField="strAño" HeaderText="Año" HtmlEncode="False" />
+                                                                        <asp:BoundField DataField="strMes" HeaderText="Mes" HtmlEncode="False" />
                                                                         <asp:ButtonField ButtonType="Image" CommandName="ModificarMeta" HeaderText="Modificar" ImageUrl="~/Imagenes/Icons/edit.png" Text="Modificar">
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                         </asp:ButtonField>
@@ -789,7 +789,7 @@
                                                             <td runat="server"></td>
                                                             <td runat="server"></td>
                                                         </tr>
-                                                        <tr id="TrfechasIns" runat="server" visible="false">
+                                                        <tr id="TrfechasIns" runat="server" visible="False">
                                                             <td id="TdAñoMeta" runat="server" bgcolor="#5D7B9D" style="color: #FFFFFF; font-weight: 700">
                                                                 <asp:Label ID="lblAnñoMeta" runat="server" Font-Names="Calibri" Font-Size="Small" Text="Año:"></asp:Label>
                                                             </td>

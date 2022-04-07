@@ -245,3 +245,5 @@ C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Rel
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Release\ListasSarlaft.dll
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Release\ListasSarlaft.pdb
 C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Release\ListasSarlaft.XmlSerializers.dll
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Release\RdlCompile.cache
+C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\obj\Release\RdlCompile.compiled

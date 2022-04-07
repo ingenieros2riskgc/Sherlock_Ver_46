@@ -1226,6 +1226,7 @@
     <Compile Include="Classes\cAtributos.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\clsDtoOrigenIndicadoresReporte.cs" />
     <Compile Include="Classes\Constantes.cs" />
     <Compile Include="Classes\cQA.cs">
       <SubType>ASPXCodeBehind</SubType>

@@ -672,15 +672,50 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento
                 IdFactorRiesgo = 0;
             try
             {
+                bool booResult = false;
                 DataTable dtExc = new DataTable();
                 dtExc = mtdConsultarRiesgosIndicadores1(ref strErrMsg, CodRiesgo, IdProceso,
                     Responsable, IdFactorRiesgo);
 
                 dtExc.TableName = "Seguimiento Indicadores";
 
+                List<clsDTOriesgosIndicadores> lstRiesgoInd = new List<clsDTOriesgosIndicadores>();
+                clsBLLriesgosIndicadores cRiesgoInd = new clsBLLriesgosIndicadores();
+                lstRiesgoInd = cRiesgoInd.mtdConsultarRiesgosIndicadores(booResult, ref strErrMsg, CodRiesgo, IdProceso, Responsable, IdFactorRiesgo);
+
+                List<clsDtoOrigenIndicadoresReporte> lstRiesgoIndreporte = new List<clsDtoOrigenIndicadoresReporte>();
+                foreach (clsDTOriesgosIndicadores dato in lstRiesgoInd)
+                {
+                    clsDtoOrigenIndicadoresReporte dato2 = new clsDtoOrigenIndicadoresReporte();
+
+                    dato2.Codigo = dato.intIdRiesgoIndicador;
+                    dato2.NombreIndicador = dato.strNombreIndicador;
+                    dato2.ObjetivoIndicador = dato.strObjetivoIndicador;
+                    dato2.ResponsableMedicion = dato.strResponsableMedicion;
+                    dato2.FrecuenciaMedicion = dato.strFrecuenciaMedicion;
+                    dato2.DescripcionFrecuencia = dato.strDescripcionFrecuencia;
+                    dato2.Meta = dato.dblMeta;
+                    dato2.Año = dato.strAño;
+                    dato2.Mes = dato.strMes;
+                    dato2.Resultado = dato.dblResultado;
+                    dato2.DescripcionSeguimiento = dato.strDescripcionSeguimiento;
+                    dato2.CodRiesgo = dato.strCodRiesgo;
+                    dato2.NombreRiesgo = dato.strNombreRiesgo;
+                    lstRiesgoIndreporte.Add(dato2);
+
+                }
+
+
+
+                DataTable AUX = new DataTable();
+
+               // AUX = (DataTable)lstRiesgoInd;
+
+
+
                 if (dtExc.Rows.Count > 0)
                 {
-                    exportExcel(dtExc, Response, "Seguimiento Indicadores " + DateTime.Now + "");
+                    exportExcel(lstRiesgoIndreporte, Response, "Seguimiento Indicadores " + DateTime.Now + "");
                 }
             }
             catch (Exception ex)
@@ -739,7 +774,44 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento
                 //  omb.ShowMessage($"Error al generar el reporte. {ex.Message}", 1, "Atencion");
             }
         }
-        
+        public static void exportExcel(
+                  List<clsDtoOrigenIndicadoresReporte> lstRiesgoInd, HttpResponse Response, string filename)
+        {
+
+
+            try
+            {
+
+
+                Response.Clear();
+                Response.ContentType = "application/vnd.ms-excel";
+                Response.AddHeader("Content-Disposition", "attachment;filename=" + filename + ".xls");
+                Response.ContentEncoding = System.Text.Encoding.Default;
+                System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+                System.Web.UI.HtmlTextWriter htmlWrite = new System.Web.UI.HtmlTextWriter(stringWrite);
+                System.Web.UI.WebControls.DataGrid dg = new System.Web.UI.WebControls.DataGrid();
+                dg.DataSource = lstRiesgoInd;
+                dg.DataBind();
+                dg.RenderControl(htmlWrite);
+                Response.Write(stringWrite.ToString());
+                HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
+
+            }
+            catch (System.Threading.ThreadAbortException e)
+            {
+                string ees = e.Message;
+                HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
+            }
+            catch (Exception ex)
+            {
+                //  omb.ShowMessage($"Error al generar el reporte. {ex.Message}", 1, "Atencion");
+            }
+        }
+
         public DataTable mtdConsultarRiesgosIndicadores1(ref string strErrMsg, string CodRiesgo, int IdProceso,
            int Responsable, int IdFactorRiesgo)
         {
@@ -844,5 +916,7 @@ namespace ListasSarlaft.UserControls.Riesgos.Seguimiento
 
             return dtInfo;
         }
+
+      
     }
 }

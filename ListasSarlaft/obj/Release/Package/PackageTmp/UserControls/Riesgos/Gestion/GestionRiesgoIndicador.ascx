@@ -130,13 +130,13 @@ div.ajax__calendar_container{width: 225px;}
             <asp:GridView ID="GridViewVariables" runat="server" AutoGenerateColumns="False" BorderStyle="Solid"
                                                                     CellPadding="4" Font-Names="Calibri" Font-Size="Small" ForeColor="#333333" GridLines="Vertical"
                                                                     DataKeyNames="intIdFormato,intIdVariableRiesgoIndicador"
-                                                                    ShowHeaderWhenEmpty="True" Width="91px" OnRowCommand="GridViewVariables_RowCommand">
+                                                                    ShowHeaderWhenEmpty="True" Width="962px" OnRowCommand="GridViewVariables_RowCommand">
                                                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                                     <Columns>
                                                                         <asp:BoundField DataField="intIdVariableRiesgoIndicador" HeaderText="Id" Visible="False" />
                                                                         <asp:TemplateField HeaderText="Descripción" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
-                                        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100px">
+                                        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 400px">
                                             <asp:Label ID="strDescripcion" runat="server" Text='<% # Bind("strDescripcion")%>'></asp:Label>
                                         </div>
                                     </ItemTemplate>
