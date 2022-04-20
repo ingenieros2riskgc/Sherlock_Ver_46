@@ -8,7 +8,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </PropertyGroup>
   <ItemGroup>
     <File Include="Archivos/Error/Error.txt">
-      <publishTime>04/07/2022 07:58:47</publishTime>
+      <publishTime>04/07/2022 10:40:00</publishTime>
     </File>
     <File Include="BDupdate/CambiosBD_V2.xlsx">
       <publishTime>03/07/2022 14:43:20</publishTime>
@@ -167,13 +167,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.dll">
-      <publishTime>04/07/2022 08:38:38</publishTime>
+      <publishTime>04/07/2022 10:44:07</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.pdb">
-      <publishTime>04/07/2022 08:38:38</publishTime>
+      <publishTime>04/07/2022 10:44:07</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.XmlSerializers.dll">
-      <publishTime>04/07/2022 08:38:39</publishTime>
+      <publishTime>04/07/2022 10:44:07</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>

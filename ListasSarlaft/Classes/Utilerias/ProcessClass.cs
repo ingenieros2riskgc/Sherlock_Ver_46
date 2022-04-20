@@ -70,8 +70,16 @@ namespace ListasSarlaft.Classes.Utilerias
                                         }
                                         else
                                         {
-                                            formulaResultNominador = formulaResultNominador -
-                                                    valor;
+                                            if (formulaResultNominador != 0)
+                                            {
+                                                formulaResultNominador = formulaResultNominador -
+                                                        valor;
+                                                break;
+                                            }
+                                            else {
+                                                formulaResultNominador = valor;
+
+                                            }
                                             break;
                                         }
                                     case "X":
