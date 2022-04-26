@@ -2460,10 +2460,10 @@ namespace ListasSarlaft.UserControls.Eventos
                                                             dtInfo.Rows[rows]["HoraContab"].ToString().Trim(),
                                                             dtInfo.Rows[rows]["MinContab"].ToString().Trim(),
                                                             dtInfo.Rows[rows]["amContab"].ToString().Trim(),
-                                                            dtInfo.Rows[rows]["fechaRecuperacion"].ToString().Trim(),
-                                                            dtInfo.Rows[rows]["cuantiaRecuperadaSeguros"].ToString().Trim(),
-                                                            dtInfo.Rows[rows]["cuantiaOtrasRecuperaciones"].ToString().Trim(),
-                                                            dtInfo.Rows[rows]["cuantiaNetaRecuperaciones"].ToString().Trim()
+                                                            dtInfo.Rows[rows]["FechaRecup"].ToString().Trim(),
+                                                           dtInfo.Rows[rows]["CuantiaRecuperadaSeguro"].ToString().Trim(),
+                                                           dtInfo.Rows[rows]["cuantiaOtrasRecuperaciones"].ToString().Trim(),
+                                                            dtInfo.Rows[rows]["CuantiaNetaRecuperacion"].ToString().Trim()
                                                           });
                 }
 
