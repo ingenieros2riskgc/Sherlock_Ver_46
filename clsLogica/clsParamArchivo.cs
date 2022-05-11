@@ -196,7 +196,8 @@ namespace clsLogica
             if (dtInfo != null)
             {
                 if (dtInfo.Rows.Count > 0)
-                    intResult = Convert.ToInt32(dtInfo.Rows[0]["Sumatoria"].ToString().Trim());
+                    // intResult = String.IsNullOrEmpty( Convert.ToInt32(dtInfo.Rows[0]["Sumatoria"].ToString().Trim());
+                    intResult = !String.IsNullOrEmpty(dtInfo.Rows[0]["Sumatoria"].ToString().Trim()) ? Convert.ToInt32(dtInfo.Rows[0]["Sumatoria"].ToString().Trim()) : 0;
             }
 
             return intResult;

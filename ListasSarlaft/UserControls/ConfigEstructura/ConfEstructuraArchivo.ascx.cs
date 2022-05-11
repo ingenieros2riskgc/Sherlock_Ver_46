@@ -135,7 +135,7 @@ namespace ListasSarlaft.UserControls.ConfigEstructura
                 mtdLoadDDLTipoParametro();
                 mtdResetValues();
 
-                ddlTipoParametro.SelectedIndex = 1;
+                //ddlTipoParametro.SelectedIndex = 1;
 
                 updateUser.Visible = true;
                 ibtnGuardar.Visible = true;
@@ -376,8 +376,8 @@ namespace ListasSarlaft.UserControls.ConfigEstructura
             tbTipoDato.Text = string.Empty;
             tbLongitud.Text = string.Empty;
             tbPosicion.Text = string.Empty;
-            chbEsParametrico.Checked = false;
-            ddlTipoParametro.SelectedIndex = 0;
+            chbEsParametrico.Checked = false;//
+            //ddlTipoParametro.SelectedIndex = 0;
 
             ddlTipoParametro.Enabled = false;
             updateUser.Visible = false;

@@ -1467,10 +1467,10 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 foreach (clsDTOCuadroMandoConsolidado objReporte in lstReporte)
                 {
                     promedioProbabilidad = Math.Round((Convert.ToDouble(objReporte.intSumatoriaProbabilidad)) / (Convert.ToDouble(objReporte.intNumeroRegistros))).ToString().Trim();
-                    if (promedioProbabilidad == "NaN")
+                    if ((promedioProbabilidad == "NaN")||(promedioProbabilidad == "NeuN"))
                         promedioProbabilidad = "0";
                     promedioImpacto = Math.Round((Convert.ToDouble(objReporte.intSumatoriaImpacto)) / (Convert.ToDouble(objReporte.intNumeroRegistros))).ToString().Trim();
-                    if (promedioImpacto == "NaN")
+                    if ((promedioImpacto == "NaN")||(promedioImpacto == "NeuN"))
                         promedioImpacto = "0";
                     coordenada = (LinkButton)FindControl("LBt" + cRiesgo.IdProbabilidad(promedioProbabilidad) + cRiesgo.IdImpacto(promedioImpacto));
                     row = dtMes.NewRow();
@@ -1530,7 +1530,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                     Chart2.Series["Series1"].LegendText = "Evolución Perfil de Riesgo";
                     Chart2.Series["Series1"].MarkerStyle = MarkerStyle.Circle;
                     // Set marker size
-                    Chart2.Series["Series1"].MarkerSize = 27;
+                    Chart2.Series["Series1"].MarkerSize = 20;
                     if (color == "")
                     {
                         Chart2.Series["Series1"].Points[points].Color = System.Drawing.Color.Green;
@@ -1590,7 +1590,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 Chart2.ChartAreas["ChartArea1"].AxisX.IsMarginVisible = true;
 
                 // Enable 3D, and show data point marker lines
-                Chart2.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
+                Chart2.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = false;
                 Chart2.Series["Series1"]["ShowMarkerLines"] = "True";
                 
                 dvLineChart.Visible = true;
