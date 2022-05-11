@@ -1472,7 +1472,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                     promedioImpacto = Math.Round((Convert.ToDouble(objReporte.intSumatoriaImpacto)) / (Convert.ToDouble(objReporte.intNumeroRegistros))).ToString().Trim();
                     if ((promedioImpacto == "NaN")||(promedioImpacto == "NeuN"))
                         promedioImpacto = "0";
-                    coordenada = (LinkButton)FindControl("LBt" + cRiesgo.IdProbabilidad(promedioProbabilidad) + cRiesgo.IdImpacto(promedioImpacto));
+                    coordenada = (LinkButton)FindControl("LBt" + cRiesgo.IdProbabilidad(promedioProbabilidad) + cRiesgo.IdImpacto(promedioImpacto));//
                     row = dtMes.NewRow();
                     if(coordenada != null)
                     {
