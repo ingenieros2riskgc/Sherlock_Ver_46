@@ -880,33 +880,36 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
 
             }
             
-            /*booResult = cCuadroConsolidado.mtdConsultarReporteNLKPerfilRI(ref strErrMgs, ref lstReporteNLKPerilRI);
-            if(booResult == true)
-            {
-                DataRow dr1 = dtPerfiles.NewRow();
-                foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporteNLKPerilRI)
-                {
+            //desde aqui
+            //booResult = cCuadroConsolidado.mtdConsultarReporteNLKPerfilRI(ref strErrMsg, ref lstReporteNLKPerilRI);
+            //if(booResult == true)
+            //{
+            //    DataRow dr1 = dtPerfiles.NewRow();
+            //    foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporteNLKPerilRI)
+            //    {
                     
-                    dr1["Data"] = "Perfil Riesgo Inherente";
-                    dr1["Value1"] = objCuadro.intNumeroRegistros;
-                }
-                dtPerfiles.Rows.Add(dr1);
-            }
-            booResult = cCuadroConsolidado.mtdConsultarReporteNLKPerfilRR(ref strErrMgs, ref lstReporteNLKPerilRR);
-            if (booResult == true)
-            {
-                DataRow dr2 = dtPerfiles.NewRow();
-                foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporteNLKPerilRR)
-                {
+            //        dr1["Data"] = "Perfil Riesgo Inherente";
+            //        dr1["Value1"] = objCuadro.intNumeroRegistros;
+            //    }
+            //    dtPerfiles.Rows.Add(dr1);
+            //}
+            //booResult = cCuadroConsolidado.mtdConsultarReporteNLKPerfilRR(ref strErrMsg, ref lstReporteNLKPerilRR);
+            //if (booResult == true)
+            //{
+            //    DataRow dr2 = dtPerfiles.NewRow();
+            //    foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporteNLKPerilRR)
+            //    {
                     
-                    dr2["Data"] = "Perfil Riesgo Residual";
-                    dr2["Value1"] = objCuadro.intNumeroRegistros;
-                }
-                dtPerfiles.Rows.Add(dr2);
-            }*/
-            //mtdViewChartsReporteNLK(ds);
+            //        dr2["Data"] = "Perfil Riesgo Residual";
+            //        dr2["Value1"] = objCuadro.intNumeroRegistros;
+            //    }
+            //    dtPerfiles.Rows.Add(dr2);
+            //}
+            //aqui
+           // mtdViewChartsReporteNLK(ds);
             LoadChartData(dt);
-            LoadChartDataPerfiles();
+            // LoadChartDataPerfiles();
+            Chart4.Visible = false;
             return booResult;
         }
 
@@ -1590,7 +1593,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 Chart2.ChartAreas["ChartArea1"].AxisX.IsMarginVisible = true;
 
                 // Enable 3D, and show data point marker lines
-                Chart2.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = false;
+                Chart2.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
                 Chart2.Series["Series1"]["ShowMarkerLines"] = "True";
                 
                 dvLineChart.Visible = true;
@@ -1963,6 +1966,11 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 }
             }
             
+        }
+
+        protected void Chart1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

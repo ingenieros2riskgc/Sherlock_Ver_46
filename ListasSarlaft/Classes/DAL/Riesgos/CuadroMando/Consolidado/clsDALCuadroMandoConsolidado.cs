@@ -88,9 +88,14 @@ namespace ListasSarlaft.Classes
                     {
                         /*strFechaIni = mtdConvertirFecha(objFiltros.dtFechaHistoricoInicial.ToString(), 1) + " 00:00:00:000";
                         strFechaFin = mtdConvertirFecha(objFiltros.dtFechaHistoricoFinal.ToString(), 2) + " 23:59:59:998";*/
-                        strFechaIni = (objFiltros.dtFechaHistoricoInicial.ToShortDateString() + " 00:00");
+                        DateTime aux1 = Convert.ToDateTime(objFiltros.dtFechaHistoricoInicial);
+                        DateTime aux2 = Convert.ToDateTime(objFiltros.dtFechaHistoricoFinal);
+                        strFechaIni = aux1.ToString("yyyy-MM-dd");
+                        strFechaFin = aux2.ToString("yyyy-MM-dd");
+
+                        //strFechaIni = (objFiltros.dtFechaHistoricoInicial.ToShortDateString() + " 00:00");
                         
-                        strFechaFin = (objFiltros.dtFechaHistoricoFinal.ToShortDateString() + " 23:59");
+                        //strFechaFin = (objFiltros.dtFechaHistoricoFinal.ToShortDateString() + " 23:59");
                         if (string.IsNullOrEmpty(condicion))
                             strFechaFinal = string.Format(" WHERE (RHR.FechaHistorico BETWEEN CONVERT(datetime, '{0}', 120) AND CONVERT(datetime, '{1}', 120)) ", strFechaIni, strFechaFin);
                         else
@@ -134,7 +139,7 @@ namespace ListasSarlaft.Classes
                     string strFromNormal = string.Format("FROM	Riesgos.Riesgo {0} {1}", strFrom, condicion);
 
                     strConsulta = string.Format("{0} {1} and Month(Riesgos.Riesgo.FechaRegistro) = MONTH(GETDATE())"
-                        + " and YEAR(Riesgos.Riesgo.FechaRegistro) = YEAR(GETDATE()) GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual,Riesgos.Riesgo.FechaRegistro"
+                        + " /*and YEAR(Riesgos.Riesgo.FechaRegistro) = YEAR(GETDATE()) */GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual,Riesgos.Riesgo.FechaRegistro"
                         + " order by IdProbabilidadResidual, IdImpactoResidual", strSelNormal, strFromNormal);
                 }
                 //strErrMsg = strConsulta;
@@ -280,8 +285,12 @@ namespace ListasSarlaft.Classes
                     {
                         /*strFechaIni = mtdConvertirFecha(objFiltros.dtFechaHistoricoInicial.ToString(), 1) + " 00:00:00:000";
                         strFechaFin = mtdConvertirFecha(objFiltros.dtFechaHistoricoFinal.ToString(), 2) + " 23:59:59:998";*/
-                        strFechaIni = objFiltros.dtFechaHistoricoInicial.ToShortDateString() + " 00:00";
-                        strFechaFin = objFiltros.dtFechaHistoricoFinal.ToShortDateString() + " 23:59";
+                        DateTime aux1 = Convert.ToDateTime(objFiltros.dtFechaHistoricoInicial);
+                        DateTime aux2 = Convert.ToDateTime(objFiltros.dtFechaHistoricoFinal);
+                        strFechaIni = aux1.ToString("yyyy-MM-dd");
+                        strFechaFin = aux2.ToString("yyyy-MM-dd");
+                        // strFechaIni = objFiltros.dtFechaHistoricoInicial.ToShortDateString() + " 00:00";
+                        //strFechaFin = objFiltros.dtFechaHistoricoFinal.ToShortDateString() + " 23:59";
                         if (string.IsNullOrEmpty(condicion))
                             strFechaFinal = string.Format(" WHERE (RHR.FechaHistorico BETWEEN CONVERT(datetime, '{0}', 120) AND CONVERT(datetime, '{1}', 120)) ", strFechaIni, strFechaFin);
                         else
@@ -328,7 +337,7 @@ namespace ListasSarlaft.Classes
                     string strFromNormal = string.Format("FROM Riesgos.Riesgo RR {0} {1}", strFrom, condicion);
 
                     strConsulta = string.Format("{0} {1} and Month(RR.FechaRegistro) = MONTH(GETDATE())"
-                        + " and YEAR(RR.FechaRegistro) = YEAR(GETDATE()) GROUP BY RR.IdProbabilidad, RR.IdImpacto, RR.FechaRegistro"
+                        + " /*and YEAR(RR.FechaRegistro) = YEAR(GETDATE())*/ GROUP BY RR.IdProbabilidad, RR.IdImpacto, RR.FechaRegistro"
                         + " order by IdProbabilidad, IdImpacto", strSelNormal, strFromNormal);
                 }
                 cDataBase.conectar();
@@ -571,7 +580,7 @@ namespace ListasSarlaft.Classes
                         + " FROM Riesgos.HistoricoRiesgo AS RHR "
                         + " INNER JOIN Parametrizacion.Probabilidad AS PPr ON RHR.IdProbabilidadResidual = PPr.IdProbabilidad"
                         + " INNER JOIN Parametrizacion.Impacto AS PIm ON RHR.IdImpactoResidual = PIm.IdImpacto"
-                        + " WHERE (YEAR(RHR.FechaRegistroRiesgo) = '{2}' AND MONTH(RHR.FechaRegistroRiesgo) = '{3}') "
+                        + " WHERE (YEAR(RHR.FechaHistorico) = '{2}' AND MONTH(RHR.FechaHistorico) = '{3}') "
                         + "{0} {1}", strFrom, condicion, objFiltros.dtFechaEvoPerfilInicial.Year, Month);
 
                     strConsulta = string.Format("{0} {1}) AS InfoHistorico ", strSelHistorico, strFromHistorico);

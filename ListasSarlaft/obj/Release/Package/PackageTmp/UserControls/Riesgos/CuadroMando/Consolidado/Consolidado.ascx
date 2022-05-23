@@ -32,7 +32,7 @@ div.ajax__calendar_container{width: 225px;}
                                 <asp:DropDownList runat="server" ID="ddlTipoReporte" CssClass="Apariencia" Width="300px" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoReporte_SelectedIndexChanged">
                                     <asp:ListItem Text="" Value="---"></asp:ListItem>
                                     <asp:ListItem Text="Reporte Evolución Perfil del Riesgo Residual" Value="1"></asp:ListItem>
-                                    <asp:ListItem Text="Reporte Porcentaje Participación Riesgo" Value="2"></asp:ListItem>
+                                    <%--<asp:ListItem Text="Reporte Porcentaje Participación Riesgo" Value="2"></asp:ListItem>--%>
                                     <asp:ListItem Text="Reporte Riesgos por Severidad" Value="3"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
@@ -257,7 +257,7 @@ div.ajax__calendar_container{width: 225px;}
             <table class="tabla" align="center" width="100%">
                 <tr>
                     <td align="center">
-                        <asp:Chart ID="Chart1" runat="server" Width="550px">
+                        <asp:Chart ID="Chart1" runat="server" Width="550px" OnLoad="Chart1_Load">
             <Series>
             <asp:series Name="Series1"></asp:series>
             </Series>

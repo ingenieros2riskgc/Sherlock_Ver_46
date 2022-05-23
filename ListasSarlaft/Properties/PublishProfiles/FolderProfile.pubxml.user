@@ -4,12 +4,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicacion v46 mayo 11</_PublishTargetUrl>
-    <History>True|2022-05-11T21:46:46.2906125Z;</History>
+    <_PublishTargetUrl>C:\Users\Administrador\Desktop\publicacion version 4.6 23 mayo</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Archivos/Error/Error.txt">
-      <publishTime>05/10/2022 14:13:51</publishTime>
+      <publishTime>05/23/2022 15:04:01</publishTime>
     </File>
     <File Include="BDupdate/CambiosBD_V2.xlsx">
       <publishTime>03/07/2022 14:43:20</publishTime>
@@ -24,10 +23,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>05/11/2022 16:46:35</publishTime>
+      <publishTime>05/23/2022 10:20:29</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>05/11/2022 16:46:35</publishTime>
+      <publishTime>05/23/2022 10:20:29</publishTime>
     </File>
     <File Include="bin/de/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>
@@ -48,10 +47,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/DLL.dll">
-      <publishTime>05/11/2022 16:46:36</publishTime>
+      <publishTime>05/23/2022 10:20:29</publishTime>
     </File>
     <File Include="bin/DLL.pdb">
-      <publishTime>05/11/2022 16:46:36</publishTime>
+      <publishTime>05/23/2022 10:20:29</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>03/07/2022 14:43:21</publishTime>
@@ -168,13 +167,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:23</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.dll">
-      <publishTime>05/11/2022 16:46:41</publishTime>
+      <publishTime>05/23/2022 15:09:07</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.pdb">
-      <publishTime>05/11/2022 16:46:41</publishTime>
+      <publishTime>05/23/2022 15:09:07</publishTime>
     </File>
     <File Include="bin/ListasSarlaft.XmlSerializers.dll">
-      <publishTime>05/11/2022 16:46:43</publishTime>
+      <publishTime>05/23/2022 15:09:08</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>03/07/2022 14:43:23</publishTime>
@@ -2511,7 +2510,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Consolidado/Consolidado.ascx">
-      <publishTime>03/07/2022 14:43:21</publishTime>
+      <publishTime>05/23/2022 15:02:22</publishTime>
     </File>
     <File Include="UserControls/Riesgos/CuadroMando/Controles/Controles.ascx">
       <publishTime>03/07/2022 14:43:21</publishTime>
@@ -2796,7 +2795,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/07/2022 14:43:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/11/2022 16:46:44</publishTime>
+      <publishTime>05/23/2022 15:09:08</publishTime>
     </File>
   </ItemGroup>
 </Project>
