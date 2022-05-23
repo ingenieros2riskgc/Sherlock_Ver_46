@@ -240,8 +240,16 @@ namespace ListasSarlaft.Classes
                     if(TipoReporte == "3")
                     {
                         DataTable causas = LoadRiescosControlesCusas();
-                        string Causas = causas.Rows[0]["a"].ToString().Trim();
-                        Causas= Causas.TrimEnd(',');
+                        string Causas = "";
+                        for (int i = 0; i < causas.Rows.Count; i++)
+                        {
+
+                            Causas= Causas + causas.Rows[0]["a"].ToString().Trim();
+                        }
+
+                        Causas = Causas.Replace("|", ",");
+                        //string Causas = causas.Rows[0]["a"].ToString().Trim();
+                        Causas = Causas.TrimEnd(',');
                         condicion = string.Format("{0} and ListaCausas <> '' and ListaCausas <> '0' AND b.Idcausas not in ({2}) ", condicion, TipoReporte,Causas);
                     }
                     #endregion Filtros de Consulta
@@ -295,7 +303,8 @@ namespace ListasSarlaft.Classes
         public DataTable LoadRiescosControlesCusas()
         {
             DataTable dtInformacion = new DataTable();
-            string strConsulta = "SELECT REPLACE(STRING_AGG(REPLACE(REPLACE(RTRIM(ListaCausas),'|',','),',,',','),',0'),',,',',')as a FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos]";
+            string strConsulta = "select ListaCausas as a from [Riesgos].[vwCuadroMandoRiesgosRiesgos]";
+            //string strConsulta = "SELECT REPLACE(STRING_AGG(REPLACE(REPLACE(RTRIM(ListaCausas),'|',','),',,',','),',0'),',,',',')as a FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos]";
             try {
                 cDataBase.conectar();
                 dtInformacion = cDataBase.ejecutarConsulta(strConsulta);

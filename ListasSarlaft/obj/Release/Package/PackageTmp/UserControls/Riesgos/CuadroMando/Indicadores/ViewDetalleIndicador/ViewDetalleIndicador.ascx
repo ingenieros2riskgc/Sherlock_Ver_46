@@ -3,7 +3,7 @@
 <%@ Register Src="~/UserControls/Sitio/OkMessageBox.ascx" TagPrefix="uc" TagName="OkMessageBox" %>
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link href="../../../../../Styles/AdminSitio.css" rel="stylesheet" type="text/css" />
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+
 <script src="../../../../../Scripts/DownloadJquery.js"></script>
 <script type="text/javascript">
     function fnClick(sender, e) {
