@@ -12,6 +12,26 @@ div.ajax__calendar_days table tr td{padding-right: 0px;}
 div.ajax__calendar_body{width: 225px;}
 div.ajax__calendar_container{width: 225px;}
 
+    .auto-style1 {
+        width: 308px;
+    }
+    .auto-style3 {
+        text-align: "left";
+        background-color: #BBBBBB;
+        height: 23px;
+    }
+    .auto-style4 {
+        width: 308px;
+        height: 23px;
+    }
+    .auto-style5 {
+        height: 23px;
+    }
+
+    .auto-style6 {
+        width: 100%;
+    }
+
     </style>
 <asp:UpdatePanel ID="ConsolidadoBody" runat="server">
     <ContentTemplate>
@@ -28,7 +48,7 @@ div.ajax__calendar_container{width: 225px;}
                             <td class="RowsText">
                                 <asp:Label ID="lblTipoReporte" runat="server" Text="Tipo Reporte:" CssClass="Apariencia"></asp:Label>
                             </td>
-                            <td>
+                            <td class="auto-style1">
                                 <asp:DropDownList runat="server" ID="ddlTipoReporte" CssClass="Apariencia" Width="300px" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoReporte_SelectedIndexChanged">
                                     <asp:ListItem Text="" Value="---"></asp:ListItem>
                                     <asp:ListItem Text="Reporte Evolución Perfil del Riesgo Residual" Value="1"></asp:ListItem>
@@ -47,7 +67,7 @@ div.ajax__calendar_container{width: 225px;}
                                 <asp:Label ID="lblRiesgoGlobal" runat="server" Text="Riesgos globales" CssClass="Apariencia"
                                     ></asp:Label>
                             </td>
-                            <td>
+                            <td class="auto-style1">
                                 <asp:DropDownList ID="ddlRiesgoGlobal" runat="server" Width="300px" Font-Names="Calibri"
                                     Font-Size="Small" AutoPostBack="True">
                                     
@@ -57,7 +77,7 @@ div.ajax__calendar_container{width: 225px;}
                     <tr id="CadenaValor">
                                         <td class="RowsText">
                                             <asp:Label ID="Label19" runat="server" Text="Cadena de Valor:" CssClass="Apariencia"></asp:Label></td>
-                                        <td>
+                                        <td class="auto-style1">
                                             <asp:DropDownList ID="ddlCadenaValor" runat="server" Width="300px"
                                                 CssClass="Apariencia" AutoPostBack="True"
                                                 DataTextField="NombreCadenaValor" DataValueField="IdCadenaValor"
@@ -74,7 +94,7 @@ div.ajax__calendar_container{width: 225px;}
                                     <tr id="Macroproceso">
                                         <td class="RowsText">
                                             <asp:Label ID="Label22" runat="server" Text="Macroproceso:" CssClass="Apariencia"></asp:Label></td>
-                                        <td>
+                                        <td class="auto-style1">
                                             <asp:DropDownList ID="ddlMacroproceso" runat="server" Width="300px"
                                                 CssClass="Apariencia" AutoPostBack="True" DataTextField="Nombre" DataValueField="IdMacroproceso"
                                                 OnSelectedIndexChanged="ddlMacroproceso_SelectedIndexChanged">
@@ -84,7 +104,7 @@ div.ajax__calendar_container{width: 225px;}
                                     <tr id="Proceso">
                                         <td class="RowsText">
                                             <asp:Label ID="Label7" runat="server" Text="Proceso:" CssClass="Apariencia"></asp:Label></td>
-                                        <td>
+                                        <td class="auto-style1">
                                             <asp:DropDownList ID="ddlProceso" runat="server" Width="300px" OnSelectedIndexChanged="ddlProceso_SelectedIndexChanged"
                                                 CssClass="Apariencia" AutoPostBack="True" DataTextField="Nombre" DataValueField="IdProceso">
                                             </asp:DropDownList></td>
@@ -93,7 +113,7 @@ div.ajax__calendar_container{width: 225px;}
                                     <tr id="Subproceso">
                                         <td class="RowsText">
                                             <asp:Label ID="Label8" runat="server" Text="Subproceso:" CssClass="Apariencia"></asp:Label></td>
-                                        <td>
+                                        <td class="auto-style1">
                                             <asp:DropDownList ID="ddlSubproceso" runat="server" Width="300px"
                                                 CssClass="Apariencia" AutoPostBack="True" DataTextField="Nombre" DataValueField="IdProceso">
                                             </asp:DropDownList></td>
@@ -103,7 +123,7 @@ div.ajax__calendar_container{width: 225px;}
                         <td class="RowsText">
                             <asp:Label ID="lblAreas" runat="server" Text="Área:" CssClass="Apariencia" Width="300px"></asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style1">
                             <asp:DropDownList runat="server" ID="ddlAreas" CssClass="Apariencia" Width="300px"></asp:DropDownList>
                         </td>
                         <td>
@@ -114,7 +134,7 @@ div.ajax__calendar_container{width: 225px;}
                         <td class="RowsText">
                             <asp:Label runat="server" ID="lblComparativo" CssClass="Apariencia" Text="Comparativo"></asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style1">
                             <asp:CheckBox ID="cbComparativo" runat="server" OnCheckedChanged="cbComparativo_CheckedChanged" AutoPostBack="True" />
                         </td>
                         <td></td>
@@ -124,7 +144,7 @@ div.ajax__calendar_container{width: 225px;}
                             <asp:Label runat="server" ID="lblFechaInicial" Text="Fecha Inicial" CssClass="Apariencia">
                             </asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style1">
                             <asp:TextBox ID="txbFechaInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
                         </td>
                         <td>
@@ -135,13 +155,14 @@ div.ajax__calendar_container{width: 225px;}
                                     ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
                                     ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
+
                     </tr>
-                    <tr runat="server" id="trHistoricoFinal" visible="false">
+                      <tr runat="server" id="trHistoricoFinal" visible="false">
                         <td class="RowsText">
                             <asp:Label runat="server" ID="lblFechaFinal" Text="Fecha Final" CssClass="Apariencia">
                             </asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style1">
                             <asp:TextBox ID="txbFechaFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
                         </td>
                         <td>
@@ -153,15 +174,115 @@ div.ajax__calendar_container{width: 225px;}
                                     ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
                             </td>
                     </tr>
-                    <tr runat="server" id="trPerfilHistoricoInicial" visible="false">
+                    <tr runat="server" id="trHistoricoInicial1" visible="false">
                         <td class="RowsText">
-                            <asp:Label runat="server" ID="lblPefilInicial" Text="Fecha Inicial de la evaluación del perfil" CssClass="Apariencia">
+                            <asp:Label runat="server" ID="Label2" Text="Fecha Inicial" CssClass="Apariencia">
                             </asp:Label>
                         </td>
                         <td>
+                  
+                            <table class="auto-style6">
+                                <tr>
+                                    <td> Año</td>
+                                    <td> <asp:DropDownList runat="server" ID="YearIni" CssClass="Apariencia" Width="112px" AutoPostBack="false">
+                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                    <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
+                                    <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
+                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>                            
+                                </asp:DropDownList></td>
+                                    <td>Mes</td>
+                                    <td><asp:DropDownList runat="server" ID="MesIni" CssClass="Apariencia" Width="112px" AutoPostBack="false">
+                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                    <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
+                                    <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
+                                    <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
+                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
+                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
+                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
+                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
+                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem> 
+                                        <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>   
+                                        <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>   
+                                        <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>   
+                                        <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>   
+                                </asp:DropDownList></td>
+                                </tr>
+                            </table>
+                  
+                        </td>
+                       
+                        <td>
+                            <asp:CalendarExtender ID="CalendarExtender1" runat="server" Enabled="true" TargetControlID="txbFechaInicial"
+                            Format="yyyy-MM-dd" >
+                        </asp:CalendarExtender>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbFechaInicial"
+                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
+                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            </td>
+
+                    </tr>
+                    <tr runat="server" id="trHistoricoInicial2" visible="false">
+                        <td class="RowsText">
+                            <asp:Label runat="server" ID="Label3" Text="Fecha Final" CssClass="Apariencia">
+                            </asp:Label>
+                        </td>
+                        <td class="auto-style1">
+                            <table class="auto-style6">
+                                <tr>
+                                    <td> Año</td>
+                                    <td> <asp:DropDownList runat="server" ID="yearFin" CssClass="Apariencia" Width="112px" AutoPostBack="false" >
+                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                    <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
+                                    <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
+                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>                            
+                                </asp:DropDownList></td>
+                                    <td>Mes</td>
+                                    <td><asp:DropDownList runat="server" ID="MesFin" CssClass="Apariencia" Width="112px" AutoPostBack="false">
+                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                    <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
+                                    <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
+                                    <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
+                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
+                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
+                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
+                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
+                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem> 
+                                        <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>   
+                                        <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>   
+                                        <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>   
+                                        <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>   
+                                </asp:DropDownList></td>
+                                </tr>
+                            </table></td>
+                        <td>
+                            <asp:CalendarExtender ID="CalendarExtender2" runat="server" Enabled="true" TargetControlID="txbFechaInicial"
+                            Format="yyyy-MM-dd" >
+                        </asp:CalendarExtender>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbFechaInicial"
+                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
+                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            </td>
+
+                    </tr>
+                    <tr runat="server" id="trPerfilHistoricoInicial" visible="false">
+                        <td class="auto-style3">
+                            <asp:Label runat="server" ID="lblPefilInicial" Text="Fecha Inicial de la evaluación del perfil" CssClass="Apariencia">
+                            </asp:Label>
+                        </td>
+                        <td class="auto-style4">
                             <asp:TextBox ID="txbPerfilInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
                         </td>
-                        <td>
+                        <td class="auto-style5">
                             <asp:CalendarExtender ID="cePerfilFecha" runat="server" Enabled="true" TargetControlID="txbPerfilInicial"
                             Format="yyyy-MM-dd" >
                         </asp:CalendarExtender>
@@ -175,7 +296,7 @@ div.ajax__calendar_container{width: 225px;}
                             <asp:Label runat="server" ID="lblPerfilFinal" Text="Fecha Final de la evaluación del perfil" CssClass="Apariencia">
                             </asp:Label>
                         </td>
-                        <td>
+                        <td class="auto-style1">
                             <asp:TextBox ID="txbPerfilFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
                         </td>
                         <td>

@@ -398,16 +398,33 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 }
                 if (ddlTipoReporte.SelectedValue == "3")
                 {
-                    booResult = mtdLoadReportNLZ(ref strErrMsg);
-                    if (booResult == true)
+                    if (!cbComparativo.Checked)
                     {
-                        dvChartsReporteNLK.Visible = true;
-                        ImButtonExcelExport.Visible = true;
-                        txbTextoExcel.Visible = true;
+                        booResult = mtdLoadReportNLZ(ref strErrMsg);
+                        if (booResult == true)
+                        {
+                            dvChartsReporteNLK.Visible = true;
+                            ImButtonExcelExport.Visible = true;
+                            txbTextoExcel.Visible = true;
+                        }
+                        else
+                        {
+                            omb.ShowMessage(strErrMsg, 2, "Atención");
+                        }
                     }
-                    else
-                    {
-                        omb.ShowMessage(strErrMsg, 2, "Atención");
+                    else {
+                        booResult = mtdLoadReportNLZ2(ref strErrMsg);
+                        if (booResult == true)
+                        {
+                            dvChartsReporteNLK.Visible = true;
+                            ImButtonExcelExport.Visible = true;
+                            txbTextoExcel.Visible = true;
+                        }
+                        else
+                        {
+                            omb.ShowMessage(strErrMsg, 2, "Atención");
+                        }
+
                     }
                 }
                 if(ddlTipoReporte.SelectedValue == "1")
@@ -502,6 +519,82 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             }
 
         }
+
+        private void LoadChartData2(System.Data.DataTable initialDataSource)
+        {
+
+            for (int i = 1; i < initialDataSource.Columns.Count; i++)
+            {
+                System.Web.UI.DataVisualization.Charting.Series series = new System.Web.UI.DataVisualization.Charting.Series();
+                foreach (DataRow dr in initialDataSource.Rows)
+                {
+                    //series.Legend = dr[0].ToString();
+                    int y = (int)dr[i];
+                    series.Points.AddXY(dr["Data"].ToString(), y);
+
+                    if (i == 1)
+                    {
+                        series.Color = System.Drawing.Color.Green;
+                        series.BackGradientStyle = GradientStyle.TopBottom;
+                        series.BackSecondaryColor = System.Drawing.Color.DarkGreen;
+                    }
+                    if (i == 2)
+                    {
+                        series.Color = System.Drawing.Color.Yellow;
+                        series.BackGradientStyle = GradientStyle.TopBottom;
+                    }
+                    if (i == 3)
+                    {
+                        series.Color = System.Drawing.Color.Orange;
+                        series.BackGradientStyle = GradientStyle.TopBottom;
+                        series.BackSecondaryColor = System.Drawing.Color.DarkOrange;
+                    }
+                    if (i == 4)
+                    {
+                        series.Color = System.Drawing.Color.Red;
+                        series.BackGradientStyle = GradientStyle.TopBottom;
+                        series.BackSecondaryColor = System.Drawing.Color.DarkRed;
+                    }
+                    /*Chart1.Series["Series1"].Points[Iteracion].Color = System.Drawing.Color.Green;
+                    Chart1.Series["Series1"].Points[Iteracion].BackGradientStyle = GradientStyle.TopBottom;
+                    Chart1.Series["Series1"].Points[Iteracion].BackSecondaryColor = System.Drawing.Color.DarkGreen;
+                    Chart1.Series["Series1"].Points[Iteracion].Label = dr["Valor"].ToString() + "%";
+                    Chart1.Series["Series1"].Points[Iteracion].LabelToolTip = dr["Valor"].ToString() + "%";*/
+                }
+                /**/
+                //Chart3.Legends[0].Enabled = true;
+                Chart3.Series.Add(series);
+                // Create a new legend called "Legend2".
+                //Chart3.Legends.Add(new System.Web.UI.DataVisualization.Charting.Legend("Criticidad"));
+
+                // Set Docking of the Legend chart to the Default Chart Area.
+                //Chart3.Legends["Legend2"].DockedToChartArea = "Default";
+
+                // Assign the legend to Series1.
+                //Chart3.Series["Series1"].Legend = "Criticidad";
+                Chart3.Series["Series1"].IsVisibleInLegend = true;
+            }
+
+            foreach (System.Web.UI.DataVisualization.Charting.Series charts in Chart3.Series)
+            {
+                int iteracion = 0;
+                foreach (DataPoint point in charts.Points)
+                {
+                    if ((iteracion == 0) || (iteracion == 2))
+                    {
+                        point.Label = string.Format("{0}%", Math.Round((point.YValues[0] / Convert.ToInt32(Session["Total Inherente"].ToString())) * 100, 2));
+                    }
+                    else
+                    {
+                        point.Label = string.Format("{0}%", Math.Round((point.YValues[0] / Convert.ToInt32(Session["Total Residual"].ToString())) * 100, 2));
+                    }
+                        //point.Label = string.Format("{0}%", Math.Round((point.YValues[0] / Convert.ToInt32(Session["Total Residual"].ToString())) * 100, 2));
+                    iteracion++;
+                }
+
+            }
+
+        }
         private void LoadChartDataPerfiles()
         {
             System.Data.DataTable initialDataSource = new System.Data.DataTable();
@@ -536,13 +629,17 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
         {
             if (cbComparativo.Checked)
             {
-                trHistoricoInicial.Visible = true;
-                trHistoricoFinal.Visible = true;
+                trHistoricoInicial.Visible = false;
+                trHistoricoInicial1.Visible = true;
+                trHistoricoInicial2.Visible = true;
+                trHistoricoFinal.Visible = false;
             }
             else
             {
                 trHistoricoInicial.Visible = false;
                 trHistoricoFinal.Visible = false;
+                trHistoricoInicial1.Visible = false;
+                trHistoricoInicial2.Visible = false;
 
                 txbFechaInicial.Text = string.Empty;
                 txbFechaFinal.Text = string.Empty;
@@ -908,6 +1005,195 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             //aqui
            // mtdViewChartsReporteNLK(ds);
             LoadChartData(dt);
+            // LoadChartDataPerfiles();
+            Chart4.Visible = false;
+            return booResult;
+        }
+
+        public bool mtdLoadReportNLZ2(ref string strErrMsg)
+        {
+            bool booResult = false;
+            System.Data.DataTable dt = new System.Data.DataTable(); ;
+            System.Data.DataTable dtPerfiles = new System.Data.DataTable();
+            dt.Columns.Add("Data", Type.GetType("System.String"));
+            dt.Columns.Add("Value1", Type.GetType("System.Int32"));
+            dt.Columns.Add("Value2", Type.GetType("System.Int32"));
+            dt.Columns.Add("Value3", Type.GetType("System.Int32"));
+            dt.Columns.Add("Value4", Type.GetType("System.Int32"));
+            dtPerfiles.Columns.Add("Data", Type.GetType("System.String"));
+            dtPerfiles.Columns.Add("Value1", Type.GetType("System.String"));
+            System.Data.DataTable dtCriticidad = new System.Data.DataTable();
+            dtCriticidad.Columns.Add("Titulo", Type.GetType("System.String"));
+            dtCriticidad.Columns.Add("Serie1", Type.GetType("System.String"));
+            dtCriticidad.Columns.Add("Serie2", Type.GetType("System.String"));
+            dtCriticidad.Columns.Add("Serie3", Type.GetType("System.String"));
+            dtCriticidad.Columns.Add("Serie4", Type.GetType("System.String"));
+            DataRow RowCriticidad = dtCriticidad.NewRow();
+            RowCriticidad["Titulo"] = "Criticidad de Riesgos";
+            RowCriticidad["Serie1"] = "Bajo";
+            RowCriticidad["Serie2"] = "Moderado";
+            RowCriticidad["Serie3"] = "Alto";
+            RowCriticidad["Serie4"] = "Extremo";
+            dtCriticidad.Rows.Add(RowCriticidad);
+            GVcriticidad.DataSource = dtCriticidad;
+            GVcriticidad.DataBind();
+            GVcriticidad.Visible = true;
+            for (int i=1;i<3;i++)
+            {
+               
+                //string strErrMgs = string.Empty;
+                //string NombreRiesgoInherente = string.Empty;
+                int valorBajo = 0;
+                int valorModerado = 0;
+                int valorAlto = 0;
+                int valorExtremo = 0;
+                
+                
+                List<clsDTOCuadroMandoConsolidado> lstReporte = new List<clsDTOCuadroMandoConsolidado>();
+                List<clsDTOCuadroMandoConsolidado> lstReporteNLK = new List<clsDTOCuadroMandoConsolidado>();
+                List<clsDTOCuadroMandoConsolidado> lstReporteNLKPerilRI = new List<clsDTOCuadroMandoConsolidado>();
+                List<clsDTOCuadroMandoConsolidado> lstReporteNLKPerilRR = new List<clsDTOCuadroMandoConsolidado>();
+                clsBLLCuadroMandoConsolidado cCuadroConsolidado = new clsBLLCuadroMandoConsolidado();
+                clsDTOCuadroMandoConsolidado cuadroMando = new clsDTOCuadroMandoConsolidado();
+                clsDTOCuadroMandoConsolidadoFiltros objFiltros = new clsDTOCuadroMandoConsolidadoFiltros();
+                /**********************Filtros de Consulta****************************/
+                objFiltros.intRiesgoGlobal = Convert.ToInt32(ddlRiesgoGlobal.SelectedValue);
+                objFiltros.intIdCadenaValor = Convert.ToInt32(ddlCadenaValor.SelectedValue);
+                if (ddlMacroproceso.Items.Count > 0)
+                    objFiltros.intIdMacroProceso = Convert.ToInt32(ddlMacroproceso.SelectedValue);
+                else
+                    objFiltros.intIdMacroProceso = 0;
+                if (ddlProceso.Items.Count > 0)
+                    objFiltros.intIdProceso = Convert.ToInt32(ddlProceso.SelectedValue);
+                else
+                    objFiltros.intIdProceso = 0;
+                if (ddlSubproceso.Items.Count > 0)
+                    objFiltros.intIdSubProceso = Convert.ToInt32(ddlSubproceso.SelectedValue);
+                else
+                    objFiltros.intIdSubProceso = 0;
+                objFiltros.intArea = Convert.ToInt32(ddlAreas.SelectedValue);
+
+                if (i == 1)
+                {
+                    string auxFechaHistoricoInicial = YearIni.SelectedValue.ToString() + "-" + MesIni.SelectedValue.ToString() + "-01";
+
+                    string Auxdias = Convert.ToString(DateTime.DaysInMonth(Convert.ToInt32(YearIni.SelectedValue), Convert.ToInt32(MesIni.SelectedValue)));
+                    string auxFechaHistoricoFinal = YearIni.SelectedValue.ToString() + "-" + MesIni.SelectedValue.ToString() + "-" + Auxdias;
+                    objFiltros.dtFechaHistoricoInicial = Convert.ToDateTime(auxFechaHistoricoInicial);
+                    objFiltros.dtFechaHistoricoFinal = Convert.ToDateTime(auxFechaHistoricoFinal);
+
+                }
+                else
+                {
+                    string auxFechaHistoricoInicial = yearFin.SelectedValue.ToString() + "-" + MesFin.SelectedValue.ToString() + "-01";
+
+                    string Auxdias = Convert.ToString(DateTime.DaysInMonth(Convert.ToInt32(yearFin.SelectedValue), Convert.ToInt32(MesFin.SelectedValue)));
+                    string auxFechaHistoricoFinal = yearFin.SelectedValue.ToString() + "-" + MesFin.SelectedValue.ToString() + "-" + Auxdias;
+                    objFiltros.dtFechaHistoricoInicial = Convert.ToDateTime(auxFechaHistoricoInicial);
+                    objFiltros.dtFechaHistoricoFinal = Convert.ToDateTime(auxFechaHistoricoFinal);
+
+                }
+
+                booResult = cCuadroConsolidado.mtdConsultarReporteNLK(ref strErrMsg, ref lstReporteNLK, objFiltros);
+                if (booResult == true)
+                {
+                    foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporteNLK)
+                    {
+                        if (objCuadro.strNombreRiesgo == "Bajo")
+                        {
+                            valorBajo = valorBajo + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Moderado")
+                        {
+                            valorModerado = valorModerado + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Alto")
+                        {
+                            valorAlto = valorAlto + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Extremo")
+                        {
+                            valorExtremo = valorExtremo + objCuadro.intNumeroRegistros;
+                        }
+                    }
+                    int total = valorBajo + valorModerado + valorAlto + valorExtremo;
+                    Session["Total Inherente"] = total;
+                    DataRow dr2 = dt.NewRow();
+                    if (i == 1)
+                    {
+                        dr2["Data"] = "Riesgo Inherente" + " año " + YearIni.SelectedValue.ToString() + " mes " + MesIni.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        dr2["Data"] = "Riesgo Inherente" + " año " + yearFin.SelectedValue.ToString() + " mes " + MesFin.SelectedValue.ToString();
+                    }
+                   
+                    dr2["Value1"] = valorBajo;
+                    dr2["Value2"] = valorModerado;
+                    dr2["Value3"] = valorAlto;
+                    dr2["Value4"] = valorExtremo;
+
+                    dt.Rows.Add(dr2);
+                    valorBajo = 0;
+                    valorModerado = 0;
+                    valorAlto = 0;
+                    valorExtremo = 0;
+
+                }
+                valorBajo = 0;
+                valorModerado = 0;
+                valorAlto = 0;
+                valorExtremo = 0;
+                booResult = cCuadroConsolidado.mtdConsultarReporteXYZ(ref strErrMsg, ref lstReporte, objFiltros);
+                System.Data.DataTable dtCuadroMandoNLK = new System.Data.DataTable();
+                System.Data.DataTable dtCuadroMando = new System.Data.DataTable();
+                if (booResult == true)
+                {
+                    foreach (clsDTOCuadroMandoConsolidado objCuadro in lstReporte)
+                    {
+                        if (objCuadro.strNombreRiesgo == "Bajo")
+                        {
+                            valorBajo = valorBajo + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Moderado")
+                        {
+                            valorModerado = valorModerado + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Alto")
+                        {
+                            valorAlto = valorAlto + objCuadro.intNumeroRegistros;
+                        }
+                        if (objCuadro.strNombreRiesgo == "Extremo")
+                        {
+                            valorExtremo = valorExtremo + objCuadro.intNumeroRegistros;
+                        }
+                    }
+                    
+                    int total = valorBajo + valorModerado + valorAlto + valorExtremo;
+                    Session["Total Residual"] = total;
+                    DataRow dr1 = dt.NewRow();
+                    if (i == 1)
+                    {
+                        dr1["Data"] = "Riesgo Residual" + " año " + YearIni.SelectedValue.ToString() + " mes " + MesIni.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        dr1["Data"] = "Riesgo Residual" + " año " + yearFin.SelectedValue.ToString() + " mes " + MesFin.SelectedValue.ToString();
+                    }
+                    //dr1["Data"] = "Riesgo Residual";
+                    dr1["Value1"] = valorBajo;
+                    dr1["Value2"] = valorModerado;
+                    dr1["Value3"] = valorAlto;
+                    dr1["Value4"] = valorExtremo;
+                    dt.Rows.Add(dr1);
+                    valorBajo = 0;
+                    valorModerado = 0;
+                    valorAlto = 0;
+                    valorExtremo = 0;
+                }
+            }
+
+            LoadChartData2(dt);
             // LoadChartDataPerfiles();
             Chart4.Visible = false;
             return booResult;
@@ -1894,6 +2180,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             txbPerfilFinal.Text = string.Empty;
             dvLineChart.Visible = false;
             trHistoricoInicial.Visible = false;
+            trHistoricoInicial1.Visible = false;
+            trHistoricoInicial2.Visible = false;
             trHistoricoFinal.Visible = false;
             trPerfilHistoricoInicial.Visible = false;
             trPerfilHistoricoFinal.Visible = false;
@@ -1919,6 +2207,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             txbPerfilFinal.Text = string.Empty;
             dvLineChart.Visible = false;
             trHistoricoInicial.Visible = false;
+            trHistoricoInicial1.Visible = false;
+            trHistoricoInicial2.Visible = false;
             trHistoricoFinal.Visible = false;
             trPerfilHistoricoInicial.Visible = false;
             trPerfilHistoricoFinal.Visible = false;
@@ -1949,6 +2239,8 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             txbPerfilFinal.Text = string.Empty;
             dvLineChart.Visible = false;
             trHistoricoInicial.Visible = false;
+            trHistoricoInicial1.Visible = false;
+            trHistoricoInicial2.Visible = false;
             trHistoricoFinal.Visible = false;
             trPerfilHistoricoInicial.Visible = false;
             trPerfilHistoricoFinal.Visible = false;
