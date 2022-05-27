@@ -100,6 +100,7 @@ namespace ListasSarlaft.Classes
             clsDALCuadroMandoIndicadores cDALreporte = new clsDALCuadroMandoIndicadores();
             DataTable dtInfo = new DataTable();
             dtInfo = cDALreporte.LoadInfoReporteIndicadoresProcesos(ref strErrMsg, objFiltros);
+            int i = 0;
             if (dtInfo != null)
             {
                 if (dtInfo.Rows.Count > 0)
@@ -111,18 +112,22 @@ namespace ListasSarlaft.Classes
                         objReporte.strNombreIndicador = dr["NombreIndicador"].ToString().Trim();
                         objReporte.strObjetivoIndicador = dr["ObjetivoIndicador"].ToString().Trim();
                         objReporte.intIdRiesgoAsociado = Convert.ToInt32(dr["IdRiesgoAsociado"].ToString().Trim());
-                        if (dr["IdProbabilidad"].ToString().Trim() != "")
-                            objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim());
+                        if (dr["IdProbabilidadResidual"].ToString().Trim() != "")
+                            objReporte.intIdProbabilidad = Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim());
                         else
                             objReporte.intIdProbabilidad = 0;
-                        if (dr["IdImpacto"].ToString().Trim() != "")
-                            objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpacto"].ToString().Trim());
+                        if (dr["IdImpactoResidual"].ToString().Trim() != "")
+                            objReporte.intIdImpacto = Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim());
                         else
                             objReporte.intIdImpacto = 0;
-                        if (dr["IdProbabilidad"].ToString().Trim() != "" && dr["IdImpacto"].ToString().Trim() != "")
-                            objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidad"].ToString().Trim()), Convert.ToInt32(dr["IdImpacto"].ToString().Trim()));
-                        else
-                            objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, 0, 0);
+
+                        
+                         if (dr["IdProbabilidadResidual"].ToString().Trim() != "" && dr["IdImpactoResidual"].ToString().Trim() != "")
+                             objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim()), Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim()));
+                         else
+                             objReporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, 0, 0);
+
+                        i++;
                         /*objReporte.strCadenaValor = dr["CadenaValor"].ToString().Trim();
                         objReporte.strMacroproceso = dr["Macroproceso"].ToString().Trim();
                         objReporte.strProceso = dr["Proceso"].ToString().Trim();

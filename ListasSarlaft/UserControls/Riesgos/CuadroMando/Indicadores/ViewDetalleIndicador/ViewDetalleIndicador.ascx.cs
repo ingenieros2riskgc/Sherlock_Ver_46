@@ -341,37 +341,37 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores.ViewDetalle
                         else
                             strCondicion = string.Format(" and PSP.IdSubproceso = {0}", subproceso);
                     }
-                    if (cadenavalor != "" && cadenavalor != "0")
-                    {
-                        if(macroproceso == "0")
-                        {
-                            if (strCondicion != "")
-                                strCondicion = strCondicion + string.Format(" and ISNULL(PMP.IdMacroProceso,0) = 0");
-                            else
-                                strCondicion = string.Format(" and ISNULL(PMP.IdMacroProceso,0) = 0");
-                        }
-                        if(proceso == "0")
-                        {
-                            if (strCondicion != "")
-                                strCondicion = strCondicion + string.Format(" and ISNULL(PP.IdProceso,0) = 0");
-                            else
-                                strCondicion = string.Format(" and ISNULL(PP.IdProceso,0) = 0");
-                        }
-                        if(subproceso == "0")
-                        {
-                            if (strCondicion != "")
-                                strCondicion = strCondicion + string.Format(" and ISNULL(PSP.IdSubproceso,0) = 0");
-                            else
-                                strCondicion = string.Format(" and ISNULL(PSP.IdSubproceso,0) = 0");
-                        }
-                    }
-                        if (jerarquias != "" && jerarquias != "0")
-                    {
-                        if (strCondicion != "")
-                            strCondicion = strCondicion + string.Format(" and RR.IdResponsableRiesgo = {0}", jerarquias);
-                        else
-                            strCondicion = string.Format(" and RR.IdResponsableRiesgo = {0}", jerarquias);
-                    }
+                    //if (cadenavalor != "" && cadenavalor != "0")
+                    //{
+                    //    if(macroproceso == "0")
+                    //    {
+                    //        if (strCondicion != "")
+                    //            strCondicion = strCondicion + string.Format(" and ISNULL(PMP.IdMacroProceso,0) = 0");
+                    //        else
+                    //            strCondicion = string.Format(" and ISNULL(PMP.IdMacroProceso,0) = 0");
+                    //    }
+                    //    if(proceso == "0")
+                    //    {
+                    //        if (strCondicion != "")
+                    //            strCondicion = strCondicion + string.Format(" and ISNULL(PP.IdProceso,0) = 0");
+                    //        else
+                    //            strCondicion = string.Format(" and ISNULL(PP.IdProceso,0) = 0");
+                    //    }
+                    //    if(subproceso == "0")
+                    //    {
+                    //        if (strCondicion != "")
+                    //            strCondicion = strCondicion + string.Format(" and ISNULL(PSP.IdSubproceso,0) = 0");
+                    //        else
+                    //            strCondicion = string.Format(" and ISNULL(PSP.IdSubproceso,0) = 0");
+                    //    }
+                    //}
+                    //    if (jerarquias != "" && jerarquias != "0")
+                    //{
+                    //    if (strCondicion != "")
+                    //        strCondicion = strCondicion + string.Format(" and RR.IdResponsableRiesgo = {0}", jerarquias);
+                    //    else
+                    //        strCondicion = string.Format(" and RR.IdResponsableRiesgo = {0}", jerarquias);
+                    //}
                     string IdRiesgo = GVindicadores.DataKeys[e.Row.RowIndex].Value.ToString();
                     //int IdRiesgo = Convert.ToInt32(Session["IdEvento"].ToString());
                     //int IdRiesgo = Convert.ToInt32(Session["IdRiesgo"].ToString());

@@ -753,7 +753,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
             string strErrMgs = string.Empty;
             if (ddlTipoReporte.SelectedValue == "1")
             {
-                if(cblEfectividades.SelectedValue != "")
+                if (cblEfectividades.SelectedValue != "")
                 {
                     if (!LoadInfoReporteIndicadorRiesgo(ref strErrMgs))
                     {
@@ -765,49 +765,59 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Indicadores
                         dvGraficoIndicadorRiesgo.Visible = true;
                         Dbutton.Visible = true;
                     }
-                }else
+                }
+                else
                 {
                     omb.ShowMessage("Se debe seleccionar un filtro", 2, "Atención");
                 }
-                
+
             }
-            if(ddlTipoReporte.SelectedValue == "2")
+            if (ddlTipoReporte.SelectedValue == "2")
             {
-                if(ddlCadenaValor.SelectedValue != "0")
+                //if(ddlCadenaValor.SelectedValue != "0")
+                //{
+                //    if (!LoadInfoReporteIndicadorProcesos(ref strErrMgs))
+                //        omb.ShowMessage(strErrMgs, 2, "Atención");
+                //    else
+                //    {
+                //        dvTablaIndicadorRiesgo.Visible = true;
+                //        dvGraficoIndicadorRiesgo.Visible = true;
+                //        Dbutton.Visible = true;
+                //    }
+                //}
+                //    else
+                //{
+                //    if(ddlJerarquiaO2.SelectedValue != "-1")
+                //    {
+
+                //        if (!LoadInfoReporteIndicadorResponsable(ref strErrMgs))
+                //            omb.ShowMessage(strErrMgs, 2, "Atención");
+                //        else
+                //        {
+                //            dvTablaIndicadorRiesgo.Visible = true;
+                //            dvGraficoIndicadorRiesgo.Visible = true;
+                //            Dbutton.Visible = true;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        omb.ShowMessage("Se debe seleccionar un filtro", 2, "Atención");
+                //    }
+                if (!LoadInfoReporteIndicadorProcesos(ref strErrMgs))
                 {
-                    if (!LoadInfoReporteIndicadorProcesos(ref strErrMgs))
-                        omb.ShowMessage(strErrMgs, 2, "Atención");
-                    else
-                    {
-                        dvTablaIndicadorRiesgo.Visible = true;
-                        dvGraficoIndicadorRiesgo.Visible = true;
-                        Dbutton.Visible = true;
-                    }
+                    omb.ShowMessage(strErrMgs, 2, "Atención");
                 }
-                    else
+                else
                 {
-                    if(ddlJerarquiaO2.SelectedValue != "-1")
-                    {
-                       
-                        if (!LoadInfoReporteIndicadorResponsable(ref strErrMgs))
-                            omb.ShowMessage(strErrMgs, 2, "Atención");
-                        else
-                        {
-                            dvTablaIndicadorRiesgo.Visible = true;
-                            dvGraficoIndicadorRiesgo.Visible = true;
-                            Dbutton.Visible = true;
-                        }
-                    }
-                    else
-                    {
-                        omb.ShowMessage("Se debe seleccionar un filtro", 2, "Atención");
-                    }
-                        
+                    dvTablaIndicadorRiesgo.Visible = true;
+                    dvGraficoIndicadorRiesgo.Visible = true;
+                    Dbutton.Visible = true;
                 }
-                
-                
-            }
+            }      
+
+
         }
+        
 
         protected void ImButtonPDFexport_Click(object sender, ImageClickEventArgs e)
         {

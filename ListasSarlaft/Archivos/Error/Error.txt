@@ -7466,3 +7466,52 @@ Expiró el tiempo de espera de inicio de sesión,    en System.Data.OleDb.OleDbC
    en ListasSarlaft.Classes.cDataBase.conectar() en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cDataBase.cs:línea 31
    en ListasSarlaft.Classes.cCuenta.permisosConsulta(String IdFormulario) en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cCuenta.cs:línea 378
 23/05/2022 3:04:01 p. m.
+[DBNETLIB][ConnectionOpen (Connect()).]No existe el servidor SQL Server o se ha denegado el acceso al mismo.,    en System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   en System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.OleDb.OleDbConnection.Open()
+   en ListasSarlaft.Classes.cDataBase.conectar() en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cDataBase.cs:línea 31
+   en ListasSarlaft.Classes.cCuenta.autenticarUsuario(String Usuario, String Contrasena) en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cCuenta.cs:línea 352
+27/05/2022 8:37:43 a. m.
+[DBNETLIB][ConnectionOpen (Connect()).]No existe el servidor SQL Server o se ha denegado el acceso al mismo.,    en System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   en System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.OleDb.OleDbConnection.Open()
+   en ListasSarlaft.Classes.cDataBase.conectar() en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cDataBase.cs:línea 31
+   en ListasSarlaft.Classes.cCuenta.mtdUsuarioBloqueado(String Usuario, String Contrasena) en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cCuenta.cs:línea 1020
+27/05/2022 8:37:43 a. m.
+[DBNETLIB][ConnectionOpen (Connect()).]No existe el servidor SQL Server o se ha denegado el acceso al mismo.,    en System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   en System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.OleDb.OleDbConnection.Open()
+   en ListasSarlaft.Classes.cDataBase.conectar() en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cDataBase.cs:línea 31
+   en ListasSarlaft.Classes.cCuenta.MensajeLogin(String Usuario) en C:\Users\Administrador\Desktop\sherlock 46\Sherlock_Ver_46\ListasSarlaft\Classes\cCuenta.cs:línea 182
+27/05/2022 8:37:43 a. m.
+Sintaxis incorrecta cerca de la palabra clave 'FROM'.,    en System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   en System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   en System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   en System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   en System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   en System.Data.OleDb.OleDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.OleDb.OleDbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en ListasSarlaft.Classes.cDataBase.ejecutarConsulta(String txtQuery)
+   en ListasSarlaft.Classes.clsDALCuadroMandoIndicadores.LoadInfoReporteIndicadoresProcesos(String& strErrMsg, clsDTOCuadroMandoIndicadorFiltros objFiltros)
+27/05/2022 10:20:42 a. m.

@@ -68,42 +68,69 @@ namespace ListasSarlaft.Classes
             #endregion Variables
             try
             {
-                
-                    /*strWhere = string.Format("WHERE [IdCadenaValor] = {0} and [IdMacroproceso] = {1} and " +
-                    "[IdProceso] = {2} and[IdSubProceso] = {3} ", objFiltros.intIdCadenaValor, objFiltros.intIdMacroproceso,
-                    objFiltros.intIdProceso, objFiltros.intIdSubproceso);
-                
-                strSelect = "SELECT ISNULL([IdRiesgoIndicador], 0) AS IdRiesgoIndicador,[NombreIndicador],[ObjetivoIndicador],ISNULL([IdRiesgoAsociado],0) AS IdRiesgoAsociado,[IdProbabilidad]" +
-                ",[IdImpacto],[Codigo],[Nombre],[IdCadenaValor],[CadenaValor],[IdMacroproceso],[Macroproceso],[IdProceso]"+
-                ",[Proceso],[IdSubProceso],[Subproceso]";
 
-                strFrom = "FROM [Riesgos].[vwCuadroMandoIndicadorProceso] ";*/
+                /*strWhere = string.Format("WHERE [IdCadenaValor] = {0} and [IdMacroproceso] = {1} and " +
+                "[IdProceso] = {2} and[IdSubProceso] = {3} ", objFiltros.intIdCadenaValor, objFiltros.intIdMacroproceso,
+                objFiltros.intIdProceso, objFiltros.intIdSubproceso);
 
-                
+            strSelect = "SELECT ISNULL([IdRiesgoIndicador], 0) AS IdRiesgoIndicador,[NombreIndicador],[ObjetivoIndicador],ISNULL([IdRiesgoAsociado],0) AS IdRiesgoAsociado,[IdProbabilidad]" +
+            ",[IdImpacto],[Codigo],[Nombre],[IdCadenaValor],[CadenaValor],[IdMacroproceso],[Macroproceso],[IdProceso]"+
+            ",[Proceso],[IdSubProceso],[Subproceso]";
+
+            strFrom = "FROM [Riesgos].[vwCuadroMandoIndicadorProceso] ";*/
+
+                if (objFiltros.intIdCadenaValor != 0)
+                {
+                    strWhere = string.Format("WHERE IdCadenaValor = {0} ", objFiltros.intIdCadenaValor);
+                }
+
+
+
                 if (objFiltros.intIdSubproceso != 0)
                 {
-                    strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 3 ", objFiltros.intIdSubproceso);
+                    if (string.IsNullOrEmpty(strWhere))
+                    {
+                        strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 3 ", objFiltros.intIdSubproceso);
+                    }
+                    else {
+                        strWhere = string.Format("and IdProceso = {0} and TipoProceso = 3 ", objFiltros.intIdSubproceso);
+                    }
                 }
                 else
                 {
                     if (objFiltros.intIdProceso != 0)
                     {
-                        strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 2 ", objFiltros.intIdProceso);
+                        if (string.IsNullOrEmpty(strWhere))
+                        {
+                            strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 2 ", objFiltros.intIdProceso);
+                        }
+                        else {
+                            strWhere = string.Format("and IdProceso = {0} and TipoProceso = 2 ", objFiltros.intIdProceso);
+                        }
                     }else
                     {
                         if (objFiltros.intIdMacroproceso != 0)
                         {
-                            strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 1 ",
-                                objFiltros.intIdMacroproceso);
+                            if (string.IsNullOrEmpty(strWhere))
+                            {
+                                strWhere = string.Format("WHERE IdProceso = {0} and TipoProceso = 1 ",
+                                  objFiltros.intIdMacroproceso);
+                            }
+                            else {
+                                strWhere = string.Format("and IdProceso = {0} and TipoProceso = 1 ",
+                                     objFiltros.intIdMacroproceso);
+                            }
                         }
                     }
                 }
-                strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdProcesoIndicador],[IdProceso],"+
-                "[NombreProceso],[IdResponsableMedicion],[NombreHijo],[IdFrecuenciaMedicion],[FrecuenciaMedicion],[IdRiesgoAsociado],[Codigo],"+
-                "[Nombre],[IdFormula],[Nominador],[Denominador],[IdMeta],[Meta],[IdEsquemaSeguimiento],[ValorMinimo],[ValorMaximo],"+
-                "[DescripcionSeguimiento],[Usuario],[FechaCreacion],[Activo],[IdProbabilidad],[IdImpacto] ";
+                //strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdProcesoIndicador],[IdProceso],"+
+                //"[NombreProceso],[IdResponsableMedicion],[NombreHijo],[IdFrecuenciaMedicion],[FrecuenciaMedicion],[IdRiesgoAsociado],[Codigo],"+
+                //"[Nombre],[IdFormula],[Nominador],[Denominador],[IdMeta],[Meta],[IdEsquemaSeguimiento],[ValorMinimo],[ValorMaximo],"+
+                //"[DescripcionSeguimiento],[Usuario],[FechaCreacion],[Activo],[IdProbabilidad],[IdImpacto] ";
 
-                strFrom = "FROM [Riesgos].[vwRiesgosIndicadores]";
+                strSelect = "SELECT [IdRiesgoIndicador],[NombreIndicador],[ObjetivoIndicador],[IdProceso],[IdRiesgoAsociado],[Codigo],[Nombre],[IdProbabilidadResidual],[IdImpactoResidual] ";
+
+                strFrom = "FROM [Riesgos].[vwCuadroMandoIndicadorProceso]";
                 strOrder = string.Empty;
 
 

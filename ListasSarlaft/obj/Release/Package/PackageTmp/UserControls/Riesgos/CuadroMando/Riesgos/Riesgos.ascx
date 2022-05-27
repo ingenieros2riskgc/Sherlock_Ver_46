@@ -177,7 +177,7 @@ div.ajax__calendar_container{width: 225px;}
                         
                         </td>
                     </tr>
-                    <tr runat="server" id="trComparativo">
+                    <tr runat="server" id="trComparativo" visible="false">
                         <td class="RowsText">
                             <asp:Label runat="server" ID="lblComparativo" CssClass="Apariencia" Text="Comparativo"></asp:Label>
                         </td>
