@@ -123,19 +123,37 @@ namespace ListasSarlaft.UserControls.Sarlaft
         }
         public static void exportExcel(DataTable dt, HttpResponse Response, string filename)
         {
-            Response.Clear();
-            Response.ContentType = "application/vnd.ms-excel";
-            Response.AddHeader("Content-Disposition", "attachment;filename=" + filename + ".xls");
-            Response.ContentEncoding = System.Text.Encoding.UTF8;
-            System.IO.StringWriter stringWrite = new System.IO.StringWriter();
-            System.Web.UI.HtmlTextWriter htmlWrite = new System.Web.UI.HtmlTextWriter(stringWrite);
-            System.Web.UI.WebControls.DataGrid dg = new System.Web.UI.WebControls.DataGrid();
-            dg.DataSource = dt;
-            dg.DataBind();
-            dg.RenderControl(htmlWrite);
-            Response.Write(stringWrite.ToString());
-            Response.End();
+            //Response.Clear();
+            //Response.ContentType = "application/vnd.ms-excel";
+            //Response.AddHeader("Content-Disposition", "attachment;filename=" + filename + ".xls");
+            //Response.ContentEncoding = System.Text.Encoding.UTF8;
+            //System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+            //System.Web.UI.HtmlTextWriter htmlWrite = new System.Web.UI.HtmlTextWriter(stringWrite);
+            //System.Web.UI.WebControls.DataGrid dg = new System.Web.UI.WebControls.DataGrid();
+            //dg.DataSource = dt;
+            //dg.DataBind();
+            //dg.RenderControl(htmlWrite);
+            //Response.Write(stringWrite.ToString());
+            //Response.End();
+            XLWorkbook workbook = new XLWorkbook();
+            //workbook.Worksheets.Add("Sample").Cell(1, 1).SetValue("Hello World");
+            dt.TableName = "tabla1";
+            workbook.Worksheets.Add(dt);
+            // Prepare the response
+            HttpResponse httpResponse = Response;
+            httpResponse.Clear();
+            httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + filename + ".xlsx\"");
 
+            // Flush the workbook to the Response.OutputStream
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                workbook.SaveAs(memoryStream);
+                memoryStream.WriteTo(httpResponse.OutputStream);
+                memoryStream.Close();
+            }
+
+            httpResponse.End();
 
         }
     }

@@ -76,6 +76,9 @@
     }
 </script>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <Triggers>
+        <asp:PostBackTrigger ControlID="ImageButton2"></asp:PostBackTrigger>
+    </Triggers>
     <ContentTemplate>
         <table align="center">
             <tr align="center" bgcolor="#333399">
