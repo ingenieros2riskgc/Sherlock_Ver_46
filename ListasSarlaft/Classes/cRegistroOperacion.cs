@@ -89,6 +89,25 @@ namespace ListasSarlaft.Classes
             }
             return dtInformacion;
         }
+        public DataTable loadRTotal()
+        {
+            DataTable dtInformacion = new DataTable();
+            try
+            {
+
+                string query = "select ro.IdRegistroOperacion Registro_Operacion,ro.Identificacion,ro.NombreApellido Nombre,ro.NombreIndicador,ro.Indicador,ro.MensajeCorreo,eo.NombreEstado Estado,tr.NombreTipoRegistro Tipo,ro.FechaDeteccion, ro.FechaPosibleSolucion, jo.NombreHijo Responsable, djo.NombreResponsable from Proceso.RegistroOperacion ro join proceso.EstadoOperacion eo on ro.IdEstadoOperacion = eo.IdEstadoOperacion join proceso.TipoRegistro tr on tr.IdTipoRegistro = ro.IdTipoRegistro left join Parametrizacion.JerarquiaOrganizacional jo on jo.idHijo = ro.IdUsuario left join Parametrizacion.DetalleJerarquiaOrg djo on jo.idHijo = djo.idHijo";
+                cDataBase.conectar();
+                dtInformacion = cDataBase.ejecutarConsulta(query);
+                cDataBase.desconectar();
+            }
+            catch (Exception ex)
+            {
+                cDataBase.desconectar();
+                cError.errorMessage(ex.Message + ", " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+            return dtInformacion;
+        }
 
         public DataTable LoadAreaUsuario()
         {

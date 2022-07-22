@@ -466,6 +466,8 @@
                                                 Text="Reporte Por Registro" Value="Reporte Por Registro"></asp:MenuItem>
                                             <asp:MenuItem NavigateUrl="~/Formularios/Sarlaft/Admin/RpteTrazaSarlaft.aspx" Text="Reporte Trazabilidad Consolidado"
                                                 Value="Reporte Trazabilidad Consolidado"></asp:MenuItem>
+                                             <asp:MenuItem NavigateUrl="~/Formularios/Sarlaft/Admin/RpteTotalSarlaft.aspx" Text="Reporte Total"
+                                                Value="Reporte Trazabilidad Consolidado"></asp:MenuItem>
                                         </asp:MenuItem>
                                     </asp:MenuItem>
                                 </asp:MenuItem>
