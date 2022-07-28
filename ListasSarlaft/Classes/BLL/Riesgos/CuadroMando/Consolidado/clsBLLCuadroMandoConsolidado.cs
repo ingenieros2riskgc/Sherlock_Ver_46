@@ -46,7 +46,7 @@ namespace ListasSarlaft.Classes
                             }
                             else
                             {
-                                objPreporte.strNombreRiesgo = LoadInfoDetalleRiesgo(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim()), Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim()));
+                                objPreporte.strNombreRiesgo = LoadInfoDetalleRiesgoResidual(ref strErrMsg, Convert.ToInt32(dr["IdProbabilidadResidual"].ToString().Trim()), Convert.ToInt32(dr["IdImpactoResidual"].ToString().Trim()));
                             }
                                 
                             lstInfo.Add(objPreporte);
@@ -71,9 +71,6 @@ namespace ListasSarlaft.Classes
                 strErrMsg = "Error en la construccion del reporte: " + ex;
             }
             
-            
-            
-            
             return booResult;
         }
         /// <summary>
@@ -87,7 +84,7 @@ namespace ListasSarlaft.Classes
             string NombreRiesgo = string.Empty;
             clsDALCuadroMandoConsolidado cDALreporte = new clsDALCuadroMandoConsolidado();
             DataTable dtInfo = new DataTable();
-            dtInfo = cDALreporte.LoadInfoDetalleRiesgo(ref strErrMsg,IdProbabilidadResidual, IdImpactoResidual);
+            dtInfo = cDALreporte.LoadInfoDetalleRiesgoInherente(ref strErrMsg,IdProbabilidadResidual, IdImpactoResidual);
             
                 if (dtInfo != null)
                 {
@@ -100,6 +97,28 @@ namespace ListasSarlaft.Classes
                     }
                 }
             
+            return NombreRiesgo;
+        }
+
+        public string LoadInfoDetalleRiesgoResidual(ref string strErrMsg, int IdProbabilidadResidual, int IdImpactoResidual)
+        {
+            bool booResult = false;
+            string NombreRiesgo = string.Empty;
+            clsDALCuadroMandoConsolidado cDALreporte = new clsDALCuadroMandoConsolidado();
+            DataTable dtInfo = new DataTable();
+            dtInfo = cDALreporte.LoadInfoDetalleRiesgo(ref strErrMsg, IdProbabilidadResidual, IdImpactoResidual);
+
+            if (dtInfo != null)
+            {
+                if (dtInfo.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtInfo.Rows)
+                    {
+                        NombreRiesgo = dr["NombreRiesgoInherente"].ToString();
+                    }
+                }
+            }
+
             return NombreRiesgo;
         }
         /// <summary>

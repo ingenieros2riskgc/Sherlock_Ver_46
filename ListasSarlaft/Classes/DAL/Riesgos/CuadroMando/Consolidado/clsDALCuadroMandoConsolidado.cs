@@ -74,6 +74,24 @@ namespace ListasSarlaft.Classes
                             condicion = string.Format("{0} AND (RHR.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
                     }
                     #endregion Filtro ClasificacionRiesgo
+                    #region Clasificacion General
+                    if (objFiltros.intIdClasificacionGeneral.ToString() != "0")
+                    {
+                        if (string.IsNullOrEmpty(condicion))
+                            condicion = string.Format("WHERE RHR.IdClasificacionGeneralRiesgo = {0}", objFiltros.intIdClasificacionGeneral.ToString());
+                        else
+                            condicion = string.Format("{0} AND (RHR.IdClasificacionGeneralRiesgo = {1})", condicion, objFiltros.intIdClasificacionGeneral.ToString());                        
+                    }
+                    #endregion
+                    #region Clasificacion Particular
+                    if (objFiltros.intIdClasificacionParticular.ToString() != "0")
+                    {
+                        if (string.IsNullOrEmpty(condicion))
+                            condicion = string.Format("WHERE RHR.IdClasificacionParticularRiesgo = {0}", objFiltros.intIdClasificacionParticular.ToString());
+                        else
+                            condicion = string.Format("{0} AND (RHR.IdClasificacionParticularRiesgo = {1})", condicion, objFiltros.intIdClasificacionParticular.ToString());
+                    }
+                    #endregion
                     #region Areas
                     if (objFiltros.intArea.ToString() != "0")
                     {
@@ -126,6 +144,18 @@ namespace ListasSarlaft.Classes
                         condicion = string.Format("{0} AND (Riesgos.Riesgo.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
                     }
                     #endregion Filtro ClasificacionRiesgo
+                    #region Clasificacion General
+                    if (objFiltros.intIdClasificacionGeneral.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (Riesgos.Riesgo.IdClasificacionGeneralRiesgo = {1})", condicion, objFiltros.intIdClasificacionGeneral.ToString());
+                    }
+                    #endregion
+                    #region Clasificacion Particular
+                    if (objFiltros.intIdClasificacionParticular.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (Riesgos.Riesgo.IdClasificacionParticularRiesgo = {1})", condicion, objFiltros.intIdClasificacionParticular.ToString());
+                    }
+                    #endregion
                     #region Areas
                     if (objFiltros.intArea.ToString() != "0")
                     {
@@ -138,8 +168,8 @@ namespace ListasSarlaft.Classes
                     string strSelNormal = string.Format("SELECT COUNT(Riesgos.Riesgo.IdRiesgo) AS NumeroRegistros, Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual");
                     string strFromNormal = string.Format("FROM	Riesgos.Riesgo {0} {1}", strFrom, condicion);
 
-                    strConsulta = string.Format("{0} {1} and Month(Riesgos.Riesgo.FechaRegistro) = MONTH(GETDATE())"
-                        + " /*and YEAR(Riesgos.Riesgo.FechaRegistro) = YEAR(GETDATE()) */GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual,Riesgos.Riesgo.FechaRegistro"
+                    strConsulta = string.Format("{0} {1} /*and Month(Riesgos.Riesgo.FechaRegistro) = MONTH(GETDATE())"
+                        + " and YEAR(Riesgos.Riesgo.FechaRegistro) = YEAR(GETDATE()) */GROUP BY Riesgos.Riesgo.IdProbabilidadResidual, Riesgos.Riesgo.IdImpactoResidual,Riesgos.Riesgo.FechaRegistro"
                         + " order by IdProbabilidadResidual, IdImpactoResidual", strSelNormal, strFromNormal);
                 }
                 //strErrMsg = strConsulta;
@@ -182,6 +212,35 @@ namespace ListasSarlaft.Classes
             }
             return dtInformacion;
         }
+
+        public DataTable LoadInfoDetalleRiesgoInherente(ref string strErrMsg, int IdProbabilidad, int IdImpacto)
+        {
+            #region Variables
+            DataTable dtInformacion = new DataTable();
+            string condicion = string.Empty;
+            string strFrom = string.Empty, strFechaIni = string.Empty, strFechaFin = string.Empty, strFechaFinal = string.Empty, strConsulta = string.Empty;
+            #endregion Variables
+            try
+            {
+                condicion = string.Format("WHERE (Riesgos.Riesgo.Anulado = 0) AND (Riesgos.Riesgo.IdProbabilidad = {0}) AND (Riesgos.Riesgo.IdImpacto = {1})", IdProbabilidad, IdImpacto);
+                string strSelNormal = string.Format("SELECT distinct(NombreRiesgoInherente) as NombreRiesgoInherente");
+                string strFromNormal = string.Format("FROM Riesgos.Riesgo INNER JOIN Parametrizacion.Probabilidad ON Riesgos.Riesgo.IdProbabilidad = Parametrizacion.Probabilidad.IdProbabilidad INNER JOIN Parametrizacion.RiesgoInherente ON Riesgos.Riesgo.IdProbabilidad = Parametrizacion.RiesgoInherente.IdProbabilidad AND Riesgos.Riesgo.IdImpacto = Parametrizacion.RiesgoInherente.IdImpacto {0} {1}", strFrom, condicion);
+
+                strConsulta = string.Format("{0} {1}", strSelNormal, strFromNormal);
+
+                cDataBase.conectar();
+                dtInformacion = cDataBase.ejecutarConsulta(strConsulta);
+                cDataBase.desconectar();
+            }
+            catch (Exception ex)
+            {
+                cDataBase.desconectar();
+                cError.errorMessage(ex.Message + ", " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+            return dtInformacion;
+        }
+
         public DataTable LoadInfoDetalleRiesgoHistorico(ref string strErrMsg, int IdProbabilidadResidual, int IdImpactoResidual)
         {
             #region Variables
@@ -271,6 +330,24 @@ namespace ListasSarlaft.Classes
                             condicion = string.Format("{0} AND (RHR.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
                     }
                     #endregion Filtro ClasificacionRiesgo
+                    #region Clasificacion General
+                    if (objFiltros.intIdClasificacionGeneral.ToString() != "0")
+                    {
+                        if (string.IsNullOrEmpty(condicion))
+                            condicion = string.Format("WHERE RHR.IdClasificacionGeneralRiesgo = {0}", objFiltros.intIdClasificacionGeneral.ToString());
+                        else
+                            condicion = string.Format("{0} AND (RHR.IdClasificacionGeneralRiesgo = {1})", condicion, objFiltros.intIdClasificacionGeneral.ToString());                        
+                    }
+                    #endregion
+                    #region Clasificacion Particular
+                    if (objFiltros.intIdClasificacionParticular.ToString() != "0")
+                    {
+                        if (string.IsNullOrEmpty(condicion))
+                            condicion = string.Format("WHERE RHR.IdClasificacionParticularRiesgo = {0}", objFiltros.intIdClasificacionParticular.ToString());
+                        else
+                            condicion = string.Format("{0} AND (RHR.IdClasificacionParticularRiesgo = {1})", condicion, objFiltros.intIdClasificacionParticular.ToString());
+                    }
+                    #endregion
                     #region Areas
                     if (objFiltros.intArea.ToString() != "0")
                     {
@@ -311,19 +388,31 @@ namespace ListasSarlaft.Classes
                 {
                     #region Filtros de Consulta
                     if (objFiltros.intIdCadenaValor.ToString() != "0")
-                        condicion = condicion + " AND (Riesgos.Riesgo.IdCadenaValor = " + objFiltros.intIdCadenaValor.ToString() + ")";
+                        condicion = condicion + " AND (RR.IdCadenaValor = " + objFiltros.intIdCadenaValor.ToString() + ")";
                     if (objFiltros.intIdMacroProceso.ToString() != "0")
-                        condicion = condicion + " AND (Riesgos.Riesgo.IdMacroproceso = " + objFiltros.intIdMacroProceso.ToString() + ")";
+                        condicion = condicion + " AND (RR.IdMacroproceso = " + objFiltros.intIdMacroProceso.ToString() + ")";
                     if (objFiltros.intIdProceso.ToString() != "0")
-                        condicion = condicion + " AND (Riesgos.Riesgo.IdProceso = " + objFiltros.intIdProceso.ToString() + ")";
+                        condicion = condicion + " AND (RR.IdProceso = " + objFiltros.intIdProceso.ToString() + ")";
                     if (objFiltros.intIdSubProceso.ToString() != "0")
-                        condicion = condicion + " AND (Riesgos.Riesgo.IdSubProceso = " + objFiltros.intIdSubProceso.ToString() + ")";
+                        condicion = condicion + " AND (RR.IdSubProceso = " + objFiltros.intIdSubProceso.ToString() + ")";
                     #region Filtro ClasificacionRiesgo
                     if (objFiltros.intRiesgoGlobal.ToString() != "0")
                     {
-                        condicion = string.Format("{0} AND (Riesgos.Riesgo.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
+                        condicion = string.Format("{0} AND (RR.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
                     }
                     #endregion Filtro ClasificacionRiesgo
+                    #region Clasificacion General
+                    if (objFiltros.intIdClasificacionGeneral.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (RR.IdClasificacionGeneralRiesgo = {1})", condicion, objFiltros.intIdClasificacionGeneral.ToString());
+                    }
+                    #endregion
+                    #region Clasificacion Particular
+                    if (objFiltros.intIdClasificacionParticular.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (RR.IdClasificacionParticularRiesgo = {1})", condicion, objFiltros.intIdClasificacionParticular.ToString());
+                    }
+                    #endregion
                     #region Areas
                     if (objFiltros.intArea.ToString() != "0")
                     {
@@ -336,8 +425,8 @@ namespace ListasSarlaft.Classes
                     string strSelNormal = string.Format("SELECT COUNT(RR.IdRiesgo) AS NumeroRegistros, RR.IdProbabilidad, RR.IdImpacto");
                     string strFromNormal = string.Format("FROM Riesgos.Riesgo RR {0} {1}", strFrom, condicion);
 
-                    strConsulta = string.Format("{0} {1} and Month(RR.FechaRegistro) = MONTH(GETDATE())"
-                        + " /*and YEAR(RR.FechaRegistro) = YEAR(GETDATE())*/ GROUP BY RR.IdProbabilidad, RR.IdImpacto, RR.FechaRegistro"
+                    strConsulta = string.Format("{0} {1} /*and Month(RR.FechaRegistro) = MONTH(GETDATE())*/"
+                        + " /*and YEAR(RR.FechaRegistro) = YEAR(GETDATE())*/ GROUP BY RR.IdProbabilidad, RR.IdImpacto"
                         + " order by IdProbabilidad, IdImpacto", strSelNormal, strFromNormal);
                 }
                 cDataBase.conectar();
@@ -552,6 +641,18 @@ namespace ListasSarlaft.Classes
                             condicion = string.Format("{0} AND (RHR.IdClasificacionRiesgo = {1})", condicion, objFiltros.intRiesgoGlobal.ToString());
                     }
                     #endregion Filtro ClasificacionRiesgo
+                    #region Filtro Clasificacion General
+                    if (objFiltros.intIdClasificacionGeneral.ToString() != "" && objFiltros.intIdClasificacionGeneral.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (RHR.IdClasificacionGeneralRiesgo = {1})", condicion, objFiltros.intIdClasificacionGeneral.ToString());
+                    }
+                    #endregion
+                    #region Filtro Clasificacion Particular
+                    if (objFiltros.intIdClasificacionParticular.ToString() != "" && objFiltros.intIdClasificacionParticular.ToString() != "0")
+                    {
+                        condicion = string.Format("{0} AND (RHR.IdClasificacionParticularRiesgo = {1})", condicion, objFiltros.intIdClasificacionParticular.ToString());
+                    }
+                    #endregion
                     #region Areas
                     if (objFiltros.intArea.ToString() != "0")
                     {

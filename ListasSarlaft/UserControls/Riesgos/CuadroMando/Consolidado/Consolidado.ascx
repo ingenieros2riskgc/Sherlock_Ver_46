@@ -69,7 +69,7 @@ div.ajax__calendar_container{width: 225px;}
                             </td>
                             <td class="auto-style1">
                                 <asp:DropDownList ID="ddlRiesgoGlobal" runat="server" Width="300px" Font-Names="Calibri"
-                                    Font-Size="Small" AutoPostBack="True">
+                                    Font-Size="Small" AutoPostBack="True" OnSelectedIndexChanged="ddlRiesgoGlobal_SelectedIndexChanged">
                                     
                                 </asp:DropDownList>
                             </td>
@@ -119,212 +119,203 @@ div.ajax__calendar_container{width: 225px;}
                                             </asp:DropDownList></td>
                                         <td></td>
                                     </tr>
+                                    <tr>
+                                            <td class="RowsText">
+                                                <asp:Label ID="Label158" runat="server" Text="Clasificación General" CssClass="Apariencia"></asp:Label>
+                                            </td>
+                                            <td >
+                                                <asp:DropDownList ID="ddlClasificacionGeneral" runat="server" Width="300px" Font-Names="Calibri"
+                                                    Font-Size="Small" AutoPostBack="True" OnSelectedIndexChanged="ddlClasificacionGeneral_SelectedIndexChanged">
+                                    
+                                                </asp:DropDownList>
+                                            </td>
+                                     </tr>
+                                    <tr>
+                                            <td class="RowsText">
+                                                <asp:Label ID="Label4" runat="server" Text="Clasificación Particular" CssClass="Apariencia"></asp:Label>
+                                            </td>
+                                            <td >
+                                                <asp:DropDownList ID="ddlClasificacionParticular" runat="server" Width="300px" Font-Names="Calibri"
+                                                    Font-Size="Small" AutoPostBack="True" >
+                                    
+                                                </asp:DropDownList>
+                                            </td>
+                                     </tr>
+                                    <tr>
+                                        <td class="RowsText">
+                                            <asp:Label ID="lblAreas" runat="server" CssClass="Apariencia" Text="Área:" Width="300px"></asp:Label>
+                                        </td>
+                                        <td class="auto-style1">
+                                            <asp:DropDownList ID="ddlAreas" runat="server" CssClass="Apariencia" Width="300px">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td></td>
+                        <tr id="trComparativo" runat="server">
+                            <td class="RowsText">
+                                <asp:Label ID="lblComparativo" runat="server" CssClass="Apariencia" Text="Comparativo"></asp:Label>
+                            </td>
+                            <td class="auto-style1">
+                                <asp:CheckBox ID="cbComparativo" runat="server" AutoPostBack="True" OnCheckedChanged="cbComparativo_CheckedChanged" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr id="trHistoricoInicial" runat="server" visible="false">
+                            <td class="RowsText">
+                                <asp:Label ID="lblFechaInicial" runat="server" CssClass="Apariencia" Text="Fecha Inicial"> </asp:Label>
+                            </td>
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbFechaInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:CalendarExtender ID="ceFechaInicial" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbFechaInicial" />
+                                <asp:RequiredFieldValidator ID="rfvFechaInicial" runat="server" ControlToValidate="txbFechaInicial" ErrorMessage="Debe ingresar la fecha inicial." ForeColor="Red" ToolTip="Debe ingresar la fecha inicial." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr id="trHistoricoFinal" runat="server" visible="false">
+                            <td class="RowsText">
+                                <asp:Label ID="lblFechaFinal" runat="server" CssClass="Apariencia" Text="Fecha Final"> </asp:Label>
+                            </td>
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbFechaFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:CalendarExtender ID="ceFechaFianl" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbFechaFinal" />
+                                <asp:RequiredFieldValidator ID="rfvFechaFinal" runat="server" ControlToValidate="txbFechaFinal" ErrorMessage="Debe ingresar la fecha final." ForeColor="Red" ToolTip="Debe ingresar la fecha final." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr id="trHistoricoInicial1" runat="server" visible="false">
+                            <td class="RowsText">
+                                <asp:Label ID="Label2" runat="server" CssClass="Apariencia" Text="Fecha Inicial"> </asp:Label>
+                            </td>
+                            <td>
+                                <table class="auto-style6">
+                                    <tr>
+                                        <td>Año</td>
+                                        <td>
+                                            <asp:DropDownList ID="YearIni" runat="server" AutoPostBack="false" CssClass="Apariencia" Width="112px">
+                                                <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                                <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
+                                                <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
+                                                <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td>Mes</td>
+                                        <td>
+                                            <asp:DropDownList ID="MesIni" runat="server" AutoPostBack="false" CssClass="Apariencia" Width="112px">
+                                                <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                                <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
+                                                <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
+                                                <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
+                                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
+                                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
+                                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
+                                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
+                                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem>
+                                                <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>
+                                                <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>
+                                                <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>
+                                                <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <asp:CalendarExtender ID="CalendarExtender1" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbFechaInicial" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbFechaInicial" ErrorMessage="Debe ingresar la fecha inicial." ForeColor="Red" ToolTip="Debe ingresar la fecha inicial." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr id="trHistoricoInicial2" runat="server" visible="false">
+                            <td class="RowsText">
+                                <asp:Label ID="Label3" runat="server" CssClass="Apariencia" Text="Fecha Final"> </asp:Label>
+                            </td>
+                            <td class="auto-style1">
+                                <table class="auto-style6">
+                                    <tr>
+                                        <td>Año</td>
+                                        <td>
+                                            <asp:DropDownList ID="yearFin" runat="server" AutoPostBack="false" CssClass="Apariencia" Width="112px">
+                                                <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                                <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
+                                                <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
+                                                <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td>Mes</td>
+                                        <td>
+                                            <asp:DropDownList ID="MesFin" runat="server" AutoPostBack="false" CssClass="Apariencia" Width="112px">
+                                                <asp:ListItem Text="" Value="---"></asp:ListItem>
+                                                <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
+                                                <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
+                                                <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
+                                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
+                                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
+                                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
+                                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
+                                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem>
+                                                <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>
+                                                <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>
+                                                <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>
+                                                <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <asp:CalendarExtender ID="CalendarExtender2" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbFechaInicial" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbFechaInicial" ErrorMessage="Debe ingresar la fecha inicial." ForeColor="Red" ToolTip="Debe ingresar la fecha inicial." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr id="trPerfilHistoricoInicial" runat="server" visible="false">
+                            <td class="auto-style3">
+                                <asp:Label ID="lblPefilInicial" runat="server" CssClass="Apariencia" Text="Fecha Inicial de la evaluación del perfil"> </asp:Label>
+                            </td>
+                            <td class="auto-style4">
+                                <asp:TextBox ID="txbPerfilInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
+                            </td>
+                            <td class="auto-style5">
+                                <asp:CalendarExtender ID="cePerfilFecha" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbPerfilInicial" />
+                                <asp:RequiredFieldValidator ID="rfvPerfilInicial" runat="server" ControlToValidate="txbPerfilInicial" ErrorMessage="Debe ingresar la fecha inicial." ForeColor="Red" ToolTip="Debe ingresar la fecha inicial." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr id="trPerfilHistoricoFinal" runat="server" visible="false">
+                            <td class="RowsText">
+                                <asp:Label ID="lblPerfilFinal" runat="server" CssClass="Apariencia" Text="Fecha Final de la evaluación del perfil"> </asp:Label>
+                            </td>
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbPerfilFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:CalendarExtender ID="cePerfilFinal" runat="server" Enabled="true" Format="yyyy-MM-dd" TargetControlID="txbPerfilFinal" />
+                                <asp:RequiredFieldValidator ID="rfvPerfilFinal" runat="server" ControlToValidate="txbPerfilFinal" ErrorMessage="Debe ingresar la fecha final." ForeColor="Red" ToolTip="Debe ingresar la fecha final." ValidationGroup="VGconsolidado">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
                         <tr>
-                        <td class="RowsText">
-                            <asp:Label ID="lblAreas" runat="server" Text="Área:" CssClass="Apariencia" Width="300px"></asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:DropDownList runat="server" ID="ddlAreas" CssClass="Apariencia" Width="300px"></asp:DropDownList>
-                        </td>
-                        <td>
-                        
-                        </td>
-                    </tr>
-                    <tr runat="server" id="trComparativo">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="lblComparativo" CssClass="Apariencia" Text="Comparativo"></asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:CheckBox ID="cbComparativo" runat="server" OnCheckedChanged="cbComparativo_CheckedChanged" AutoPostBack="True" />
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr runat="server" id="trHistoricoInicial" visible="false">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="lblFechaInicial" Text="Fecha Inicial" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="txbFechaInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:CalendarExtender ID="ceFechaInicial" runat="server" Enabled="true" TargetControlID="txbFechaInicial"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="rfvFechaInicial" runat="server" ControlToValidate="txbFechaInicial"
-                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
+                            <td class="RowsText" colspan="3">
+                                <asp:Label ID="lblTextoProcess" runat="server" Text="Haz click en el botón para generar el Reporte:"></asp:Label>
                             </td>
-
-                    </tr>
-                      <tr runat="server" id="trHistoricoFinal" visible="false">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="lblFechaFinal" Text="Fecha Final" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="txbFechaFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:CalendarExtender ID="ceFechaFianl" runat="server" Enabled="true" TargetControlID="txbFechaFinal"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="rfvFechaFinal" runat="server" ControlToValidate="txbFechaFinal"
-                                    ErrorMessage="Debe ingresar la fecha final." ToolTip="Debe ingresar la fecha final."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <asp:ImageButton ID="IBprocess" runat="server" CausesValidation="true" CommandName="Insert" ImageUrl="~/Imagenes/Aplicacion/Gears.png" OnClick="IBprocess_Click" ToolTip="Procesar" ValidationGroup="VGconsolidado" />
                             </td>
-                    </tr>
-                    <tr runat="server" id="trHistoricoInicial1" visible="false">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="Label2" Text="Fecha Inicial" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td>
-                  
-                            <table class="auto-style6">
-                                <tr>
-                                    <td> Año</td>
-                                    <td> <asp:DropDownList runat="server" ID="YearIni" CssClass="Apariencia" Width="112px" AutoPostBack="false">
-                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
-                                    <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
-                                    <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
-                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
-                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
-                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
-                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
-                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
-                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>                            
-                                </asp:DropDownList></td>
-                                    <td>Mes</td>
-                                    <td><asp:DropDownList runat="server" ID="MesIni" CssClass="Apariencia" Width="112px" AutoPostBack="false">
-                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
-                                    <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
-                                    <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
-                                    <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
-                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
-                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
-                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
-                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
-                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem> 
-                                        <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>   
-                                        <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>   
-                                        <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>   
-                                        <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>   
-                                </asp:DropDownList></td>
-                                </tr>
-                            </table>
-                  
-                        </td>
-                       
-                        <td>
-                            <asp:CalendarExtender ID="CalendarExtender1" runat="server" Enabled="true" TargetControlID="txbFechaInicial"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbFechaInicial"
-                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="3">
+                                <asp:ImageButton ID="ImbCleanFiltros" runat="server" ImageUrl="~/Imagenes/Icons/cancel.png" OnClick="ImbCleanFiltros_Click" ToolTip="Cancelar" />
                             </td>
-
-                    </tr>
-                    <tr runat="server" id="trHistoricoInicial2" visible="false">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="Label3" Text="Fecha Final" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <table class="auto-style6">
-                                <tr>
-                                    <td> Año</td>
-                                    <td> <asp:DropDownList runat="server" ID="yearFin" CssClass="Apariencia" Width="112px" AutoPostBack="false" >
-                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
-                                    <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
-                                    <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
-                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
-                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
-                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
-                                <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
-                                <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
-                                <asp:ListItem Text="2025" Value="2025"></asp:ListItem>                            
-                                </asp:DropDownList></td>
-                                    <td>Mes</td>
-                                    <td><asp:DropDownList runat="server" ID="MesFin" CssClass="Apariencia" Width="112px" AutoPostBack="false">
-                                    <asp:ListItem Text="" Value="---"></asp:ListItem>
-                                    <asp:ListItem Text="Enero" Value="01"></asp:ListItem>
-                                    <asp:ListItem Text="Febrero" Value="02"></asp:ListItem>
-                                    <asp:ListItem Text="Marzo" Value="03"></asp:ListItem>
-                                <asp:ListItem Text="Abril" Value="04"></asp:ListItem>
-                                <asp:ListItem Text="Mayo" Value="05"></asp:ListItem>
-                                <asp:ListItem Text="Junio" Value="06"></asp:ListItem>
-                                <asp:ListItem Text="Julio" Value="07"></asp:ListItem>
-                                <asp:ListItem Text="Agusto" Value="08"></asp:ListItem> 
-                                        <asp:ListItem Text="Septiembre" Value="09"></asp:ListItem>   
-                                        <asp:ListItem Text="Octubre" Value="10"></asp:ListItem>   
-                                        <asp:ListItem Text="Noviembre" Value="11"></asp:ListItem>   
-                                        <asp:ListItem Text="Diciembre" Value="12"></asp:ListItem>   
-                                </asp:DropDownList></td>
-                                </tr>
-                            </table></td>
-                        <td>
-                            <asp:CalendarExtender ID="CalendarExtender2" runat="server" Enabled="true" TargetControlID="txbFechaInicial"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbFechaInicial"
-                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
-                            </td>
-
-                    </tr>
-                    <tr runat="server" id="trPerfilHistoricoInicial" visible="false">
-                        <td class="auto-style3">
-                            <asp:Label runat="server" ID="lblPefilInicial" Text="Fecha Inicial de la evaluación del perfil" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="txbPerfilInicial" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style5">
-                            <asp:CalendarExtender ID="cePerfilFecha" runat="server" Enabled="true" TargetControlID="txbPerfilInicial"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="rfvPerfilInicial" runat="server" ControlToValidate="txbPerfilInicial"
-                                    ErrorMessage="Debe ingresar la fecha inicial." ToolTip="Debe ingresar la fecha inicial."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
-                            </td>
-                    </tr>
-                    <tr runat="server" id="trPerfilHistoricoFinal" visible="false">
-                        <td class="RowsText">
-                            <asp:Label runat="server" ID="lblPerfilFinal" Text="Fecha Final de la evaluación del perfil" CssClass="Apariencia">
-                            </asp:Label>
-                        </td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="txbPerfilFinal" runat="server" CssClass="Apariencia" Width="300px"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:CalendarExtender ID="cePerfilFinal" runat="server" Enabled="true" TargetControlID="txbPerfilFinal"
-                            Format="yyyy-MM-dd" >
-                        </asp:CalendarExtender>
-                        <asp:RequiredFieldValidator ID="rfvPerfilFinal" runat="server" ControlToValidate="txbPerfilFinal"
-                                    ErrorMessage="Debe ingresar la fecha final." ToolTip="Debe ingresar la fecha final."
-                                    ValidationGroup="VGconsolidado" ForeColor="Red">*</asp:RequiredFieldValidator>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="RowsText">
-                            <asp:Label runat="server" ID="lblTextoProcess" Text="Haz click en el botón para generar el Reporte:"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <asp:ImageButton ID="IBprocess" runat="server" CausesValidation="true" CommandName="Insert"
-                                    ImageUrl="~/Imagenes/Aplicacion/Gears.png"  ValidationGroup="VGconsolidado" ToolTip="Procesar" OnClick="IBprocess_Click" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="center">
-                            <asp:ImageButton ID="ImbCleanFiltros" runat="server" ImageUrl="~/Imagenes/Icons/cancel.png"
-                                                ToolTip="Cancelar" OnClick="ImbCleanFiltros_Click" />
-                        </td>
-                    </tr>
+                        </tr>
                     
                     </table>
             </div>

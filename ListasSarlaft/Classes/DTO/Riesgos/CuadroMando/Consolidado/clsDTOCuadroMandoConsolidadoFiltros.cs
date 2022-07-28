@@ -10,6 +10,7 @@ namespace ListasSarlaft.Classes
         #region Variables
         private int _RiesgoGlobal;
         private string _ClasificacionGeneral;
+        private string _ClasificacionParticular;
         private int _IdCadenaValor;
         private int _IdMacroProceso;
         private int _IdProceso;
@@ -17,6 +18,7 @@ namespace ListasSarlaft.Classes
         private int _Area;
         private string _AreaRiesgo;
         private int _IdClasificacionGeneral;
+        private int _IdClasificacionParticular;
         private int _IdFactor;
         private int _IdPlanEstrategico;
         private int _IdObjetivo;
@@ -35,6 +37,11 @@ namespace ListasSarlaft.Classes
         {
             get { return _ClasificacionGeneral; }
             set { _ClasificacionGeneral = value; }
+        }
+        public string strClasificacionParticular
+        {
+            get { return _ClasificacionParticular; }
+            set { _ClasificacionParticular = value; }
         }
         public int intIdCadenaValor
         {
@@ -70,6 +77,11 @@ namespace ListasSarlaft.Classes
         {
             get { return _IdClasificacionGeneral; }
             set { _IdClasificacionGeneral = value; }
+        }
+        public int intIdClasificacionParticular
+        {
+            get { return _IdClasificacionParticular; }
+            set { _IdClasificacionParticular = value; }
         }
         public int intIdFactor
         {
