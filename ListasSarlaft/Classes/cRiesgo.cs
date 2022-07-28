@@ -5021,6 +5021,7 @@ namespace ListasSarlaft.Classes
                 + ",[RiesgoResidual],[CodigoRiesgoResidual],[CodigoEvento],[DescripcionEvento]"
                 + ",[NombreArea],[IdArea],[IdRiesgo]";
                 strFrom = "FROM [Riesgos].[vwRiesgoReporteCausasSinControl] ";
+                condicion += "AND ([ListaCausas] <> '' or [ListaCausas] <> '0') AND ([IdControl] = 0 or [IdControl] = NULL) ";
                 strConsulta = string.Format("{0} {1} {2}  order by [IdRiesgo]", strSelect, strFrom, condicion);
                 //AND ISNULL(IdCausasvsControles,0) = 0
                 dtInformacion = cDataBase.ejecutarConsulta(strConsulta);

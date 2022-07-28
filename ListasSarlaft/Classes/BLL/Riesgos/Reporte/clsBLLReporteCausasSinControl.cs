@@ -51,6 +51,15 @@ namespace ListasSarlaft.Classes
             cRiesgo cRiesgo = new cRiesgo();
             DataTable dtInfo = new DataTable();
             DataTable dtInfoCausas = new DataTable();
+            dtInfoCausas.Columns.Add("NombreCausas");
+            dtInfoCausas.Columns.Add("CodigoRiesgo");
+            dtInfoCausas.Columns.Add("NombreRiesgo");
+            dtInfoCausas.Columns.Add("Descripcion");
+            dtInfoCausas.Columns.Add("RiesgoInherente");
+            dtInfoCausas.Columns.Add("RiesgoResidual");
+            dtInfoCausas.Columns.Add("CodigoEvento");
+            dtInfoCausas.Columns.Add("DescripcionEvento");
+            dtInfoCausas.Columns.Add("NombreArea");
             double promedio = 0;
             string ListaCausas = string.Empty;
             string IdCausasvsControles = string.Empty;
@@ -63,17 +72,7 @@ namespace ListasSarlaft.Classes
                 
                 if (dtInfo.Rows.Count > 0)
                 {
-                    int iteracion = 0;
-                    
-                    dtInfoCausas.Columns.Add("NombreCausas");
-                    dtInfoCausas.Columns.Add("CodigoRiesgo");
-                    dtInfoCausas.Columns.Add("NombreRiesgo");
-                    dtInfoCausas.Columns.Add("Descripcion");
-                    dtInfoCausas.Columns.Add("RiesgoInherente");
-                    dtInfoCausas.Columns.Add("RiesgoResidual");
-                    dtInfoCausas.Columns.Add("CodigoEvento");
-                    dtInfoCausas.Columns.Add("DescripcionEvento");
-                    dtInfoCausas.Columns.Add("NombreArea");
+                    int iteracion = 0;                                        
                     
                     foreach (DataRow dr in dtInfo.Rows)
                     {
@@ -126,10 +125,14 @@ namespace ListasSarlaft.Classes
                     booResult = true;
                 }
                 else
-                    dtInfoCausas = null;
+                {
+                    strErrMsg = "No se han obtenido resultados con los filtros seleccionados!";
+                }
             }
             else
-                dtInfoCausas = null;
+            {
+                strErrMsg = "No se han obtenido resultados con los filtros seleccionados!";
+            }
 
             return dtInfoCausas;
         }

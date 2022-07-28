@@ -250,7 +250,8 @@ namespace ListasSarlaft.Classes
                         Causas = Causas.Replace("|", ",");
                         //string Causas = causas.Rows[0]["a"].ToString().Trim();
                         Causas = Causas.TrimEnd(',');
-                        condicion = string.Format("{0} and ListaCausas <> '' and ListaCausas <> '0' AND b.Idcausas not in ({2}) ", condicion, TipoReporte,Causas);
+                        condicion = string.Format("{0} and ListaCausas <> '' and ListaCausas <> '0' AND b.Idcausas not in ({2}) " +
+                                                  " and (b.IdControl = 0 or b.IdControl = NULL) ", condicion, TipoReporte,Causas);
                     }
                     #endregion Filtros de Consulta
                     #region Filtros por Objetivos Estrategicos
@@ -697,7 +698,7 @@ namespace ListasSarlaft.Classes
         {
             #region Variables
             DataTable dtInformacion = new DataTable();
-            string condicion = "WHERE (Anulado = 0) and ISNULL(RPA.IdRegistro,0) = 0 ";
+            string condicion = "WHERE (Anulado = 0) and ((ISNULL(RPA.IdRegistro,0) = 0) OR RPA.IdRegistro = 0) ";
             string strFrom = string.Empty, strFechaIni = string.Empty, strFechaFin = string.Empty, strFechaFinal = string.Empty, strConsulta = string.Empty;
             #endregion Variables
             try
@@ -838,7 +839,7 @@ namespace ListasSarlaft.Classes
                         string strSelNormal = string.Format("SELECT [CodigoRiesgo],[NombreRiesgo],[CadenaValor],[IdCadenaValor],[Macroproceso],[IdMacroproceso],[Proceso],[IdProceso],[Subproceso],[IdSubProceso]"
                     + ",[FrecuenciaInherente],[CodigoFrecuenciaInherente],[ImpactoInherente],[CodigoImpactoInherente],[IdProbabilidadResidual],[IdImpactoResidual],[ListaCausas]"
                     + ",RR.[IdRiesgo]");
-                        string strFromNormal = string.Format("FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos] as RR LEFT OUTER JOIN [Riesgos].[PlanesAccion] as RPA on RPA.IdRegistro = RR.IdRiesgo {0} {1}", strFrom, condicion);
+                        string strFromNormal = string.Format("FROM [Riesgos].[vwCuadroMandoRiesgosRiesgos] as RR INNER JOIN [Riesgos].[PlanesAccion] as RPA on RPA.IdRegistro = RR.IdRiesgo {0} {1}", strFrom, condicion);
 
                         strConsulta = string.Format("{0} {1} ", strSelNormal, strFromNormal);
 

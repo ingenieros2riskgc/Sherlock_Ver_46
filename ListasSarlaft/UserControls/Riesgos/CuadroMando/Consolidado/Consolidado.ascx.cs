@@ -502,6 +502,10 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 // Assign the legend to Series1.
                 //Chart3.Series["Series1"].Legend = "Criticidad";
                 Chart3.Series["Series1"].IsVisibleInLegend = true;
+                /*Chart3.ChartAreas["ChartArea1"].AxisY.IsStartedFromZero = true;
+                Chart3.ChartAreas["ChartArea1"].AxisY.Maximum = 100;
+                Chart3.ChartAreas["ChartArea1"].AxisY.Interval =20;*/
+                Chart3.ChartAreas["ChartArea1"].AxisY.LabelStyle.Enabled = false;
             }
             
             foreach (System.Web.UI.DataVisualization.Charting.Series charts in Chart3.Series)
@@ -516,8 +520,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                     iteracion++;
                 }
                 
-            }
-
+            }            
         }
 
         private void LoadChartData2(System.Data.DataTable initialDataSource)
@@ -882,6 +885,14 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             /**********************Filtros de Consulta****************************/
             objFiltros.intRiesgoGlobal = Convert.ToInt32(ddlRiesgoGlobal.SelectedValue);
             objFiltros.intIdCadenaValor = Convert.ToInt32(ddlCadenaValor.SelectedValue);
+            if (!ddlClasificacionGeneral.SelectedValue.Equals("---"))
+            {
+                objFiltros.intIdClasificacionGeneral = Convert.ToInt32(ddlClasificacionGeneral.SelectedValue);
+            }
+            if (!ddlClasificacionParticular.SelectedValue.Equals("---"))
+            {
+                objFiltros.intIdClasificacionParticular = Convert.ToInt32(ddlClasificacionParticular.SelectedValue);
+            }
             if (ddlMacroproceso.Items.Count > 0)
                 objFiltros.intIdMacroProceso = Convert.ToInt32(ddlMacroproceso.SelectedValue);
             else
@@ -902,7 +913,7 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             }
             /**********************Filtros  de Consulta****************************/
             
-
+            //REVISAR --------------------------------------------------------------------------------------------------------------------------
             booResult = cCuadroConsolidado.mtdConsultarReporteNLK(ref strErrMsg, ref lstReporteNLK, objFiltros);
             if (booResult == true)
             {
@@ -1008,6 +1019,32 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             // LoadChartDataPerfiles();
             Chart4.Visible = false;
             return booResult;
+        }
+
+        protected void ddlRiesgoGlobal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlRiesgoGlobal.SelectedValue.ToString().Trim() != "---")
+            {
+                loadDDLClasificacionGeneral(ddlRiesgoGlobal.SelectedValue.ToString().Trim(), 2);
+            }
+            else
+            {
+                ddlClasificacionGeneral.Items.Clear();
+                ddlClasificacionGeneral.Items.Insert(0, new System.Web.UI.WebControls.ListItem("---", "---"));
+            }
+        }
+
+        protected void ddlClasificacionGeneral_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlClasificacionGeneral.SelectedValue.ToString().Trim() != "---")
+            {
+                loadDDLClasificacionParticular(ddlClasificacionGeneral.SelectedValue.ToString().Trim(), 2);
+            }
+            else
+            {
+                ddlClasificacionParticular.Items.Clear();
+                ddlClasificacionParticular.Items.Insert(0, new System.Web.UI.WebControls.ListItem("---", "---"));
+            }            
         }
 
         public bool mtdLoadReportNLZ2(ref string strErrMsg)
@@ -1728,6 +1765,16 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             /**********************Filtros de Consulta****************************/
             objFiltros.intRiesgoGlobal = Convert.ToInt32(ddlRiesgoGlobal.SelectedValue);
             objFiltros.intIdCadenaValor = Convert.ToInt32(ddlCadenaValor.SelectedValue);
+
+            if (!ddlClasificacionGeneral.SelectedValue.Equals("---"))
+            {
+                objFiltros.intIdClasificacionGeneral = Convert.ToInt32(ddlClasificacionGeneral.SelectedValue);
+            }
+            if (!ddlClasificacionParticular.SelectedValue.Equals("---"))
+            {
+                objFiltros.intIdClasificacionParticular = Convert.ToInt32(ddlClasificacionParticular.SelectedValue);
+            }
+
             if (ddlMacroproceso.Items.Count > 0)
                 objFiltros.intIdMacroProceso = Convert.ToInt32(ddlMacroproceso.SelectedValue);
             else
@@ -2152,6 +2199,59 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
                 trPerfilHistoricoInicial.Visible = false;
                 trPerfilHistoricoFinal.Visible = false;
                 trComparativo.Visible = true;
+            }            
+        }
+        private void loadDDLClasificacionGeneral(String IdClasificacionRiesgo, int Tipo)
+        {
+            try
+            {
+                System.Data.DataTable dtInfo = new System.Data.DataTable();
+                dtInfo = cRiesgo.loadDDLClasificacionGeneral(IdClasificacionRiesgo);
+                switch (Tipo)
+                {
+                    case 2:
+                        ddlClasificacionGeneral.Items.Clear();
+                        ddlClasificacionGeneral.Items.Insert(0, new System.Web.UI.WebControls.ListItem("---", "---"));
+                        if (dtInfo.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < dtInfo.Rows.Count; i++)
+                            {
+                                ddlClasificacionGeneral.Items.Insert(i + 1, new System.Web.UI.WebControls.ListItem(dtInfo.Rows[i]["NombreClasificacionGeneralRiesgo"].ToString().Trim(), dtInfo.Rows[i]["IdClasificacionGeneralRiesgo"].ToString()));
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                omb.ShowMessage("Error al cargar clasificación general. " + ex.Message, 2, "Atención");
+            }
+        }
+
+        private void loadDDLClasificacionParticular(String IdClasificacionRiesgo, int Tipo)
+        {
+            try
+            {
+                System.Data.DataTable dtInfo = new System.Data.DataTable();
+                dtInfo = cRiesgo.loadDDLClasificacionParticular(IdClasificacionRiesgo);
+                switch (Tipo)
+                {
+                    case 2:
+                        ddlClasificacionParticular.Items.Clear();
+                        ddlClasificacionParticular.Items.Insert(0, new System.Web.UI.WebControls.ListItem("---", "---"));
+                        if (dtInfo.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < dtInfo.Rows.Count; i++)
+                            {
+                                ddlClasificacionParticular.Items.Insert(i + 1, new System.Web.UI.WebControls.ListItem(dtInfo.Rows[i]["NombreClasificacionParticularRiesgo"].ToString().Trim(), dtInfo.Rows[i]["IdClasificacionParticularRiesgo"].ToString()));
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                omb.ShowMessage("Error al cargar clasificación particular. " + ex.Message, 2, "Atención");
             }
         }
 

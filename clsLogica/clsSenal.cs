@@ -6,6 +6,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using clsDatos;
 using clsDTO;
+using System.IO;
 
 namespace clsLogica
 {
@@ -2659,35 +2660,42 @@ namespace clsLogica
 
                 #region Serializacion de los datos e insercion en la estructura
                 int lineaActual = 2;
+                //Console.WriteLine("Prueba");                 
+                //File.WriteAllText(@"C:\Users\Administrador\Videos\Colanta\path.json", DataTableToJSONWithStringBuilder(dtInfoCargada));
+
                 object[] array = new object[dtSerializedData.Columns.Count];
 
                 // Llena el DataTable donde se aplicarán los filtros
                 int iteracion = 1;
                 foreach (DataRow drInfo in dtInfoCargada.Rows)
                 {
-                    if (lineaActual == Convert.ToInt32(drInfo["NumeroLinea"].ToString()))
+                    if (!ValidateNotacionCientifica(drInfo["ValorCampoArchivo"].ToString()))
                     {
-                        bool flag = mtdEsNumero(drInfo["ValorCampoArchivo"].ToString().Replace("\"", ""));
-                        if (flag == true)
-                            array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "").Replace('.', ',');
+                        if (lineaActual == Convert.ToInt32(drInfo["NumeroLinea"].ToString()))
+                        {
+                            bool flag = mtdEsNumero(drInfo["ValorCampoArchivo"].ToString().Replace("\"", ""));
+                            if (flag == true)
+                                array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "").Replace('.', ',');
+                            else
+                                array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "");
+                            if (dtInfoCargada.Rows.Count == iteracion)
+                                dtSerializedData.Rows.Add(array);
+                        }
                         else
-                            array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "");
-                        if (dtInfoCargada.Rows.Count == iteracion)
+                        {
                             dtSerializedData.Rows.Add(array);
-                    }
-                    else
-                    {
-                        dtSerializedData.Rows.Add(array);
-                        lineaActual = Convert.ToInt32(drInfo["NumeroLinea"].ToString());
-                        array = new object[dtSerializedData.Columns.Count];
-                        bool flag = mtdEsNumero(drInfo["ValorCampoArchivo"].ToString().Replace("\"", ""));
-                        if (flag == true)
-                            array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "").Replace('.', ',');
-                        else
-                            array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "");
+                            lineaActual = Convert.ToInt32(drInfo["NumeroLinea"].ToString());
+                            array = new object[dtSerializedData.Columns.Count];
+                            bool flag = mtdEsNumero(drInfo["ValorCampoArchivo"].ToString().Replace("\"", ""));
+                            if (flag == true)
+                                array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "").Replace('.', ',');
+                            else
+                                array[Convert.ToInt32(drInfo["Posicion"].ToString()) - 1] = drInfo["ValorCampoArchivo"].ToString().Replace("\"", "");
+                        }                        
                     }
                     iteracion++;
                 }
+                
                 //dtSerializedData.Rows.Add(dr);
                 #endregion
                 int a = dtSerializedData.Rows.Count;
@@ -2796,8 +2804,9 @@ namespace clsLogica
                                 dtPrefiltro = dtSerializedData.Select(newFiltro).CopyToDataTable();
                             if (dtPrefiltro.Rows.Count == 0)
                                 dtPrefiltro = dtSerializedData;
+                            //File.WriteAllText(@"C:\Users\Administrador\Videos\Colanta\dtPrefiltro.json", DataTableToJSONWithStringBuilder(dtPrefiltro));
                             foreach (DataRow row in dtPrefiltro.Rows)
-                            {
+                            {                                
                                 int posicion = 0;
                                 string variable = string.Empty;
                                 decimal valor1 = 0;
@@ -2839,9 +2848,13 @@ namespace clsLogica
                                     }
 
 
+                                }                                
+                                decimal valorData=0;
+                                if (!string.IsNullOrEmpty(row[posicion - 1].ToString()))
+                                {
+                                    valorData = Convert.ToDecimal(row[posicion - 1].ToString());//.Replace('.', ',')
                                 }
-
-                                decimal valorData = Convert.ToDecimal(row[posicion - 1].ToString());//.Replace('.', ',')
+                                
                                 if (valorData >= valor1 && valorData <= valor2)
                                     dtFiltrados.Rows.Add(row.ItemArray);
                             }
@@ -2928,6 +2941,40 @@ namespace clsLogica
 
         }
 
+        public string DataTableToJSONWithStringBuilder(DataTable table)
+        {
+            var JSONString = new StringBuilder();
+            if (table.Rows.Count > 0)
+            {
+                JSONString.Append("[");
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    JSONString.Append("{");
+                    for (int j = 0; j < table.Columns.Count; j++)
+                    {
+                        if (j < table.Columns.Count - 1)
+                        {
+                            JSONString.Append("\"" + table.Columns[j].ColumnName.ToString() + "\":" + "\"" + table.Rows[i][j].ToString() + "\",");
+                        }
+                        else if (j == table.Columns.Count - 1)
+                        {
+                            JSONString.Append("\"" + table.Columns[j].ColumnName.ToString() + "\":" + "\"" + table.Rows[i][j].ToString() + "\"");
+                        }
+                    }
+                    if (i == table.Rows.Count - 1)
+                    {
+                        JSONString.Append("}");
+                    }
+                    else
+                    {
+                        JSONString.Append("},");
+                    }
+                }
+                JSONString.Append("]");
+            }
+            return JSONString.ToString();
+        }
+
         public void mtdCapturaDatos()
         {
 
@@ -2945,6 +2992,16 @@ namespace clsLogica
             //Regex regex = new Regex(@"^[0-9]+$");
             Regex regex = new Regex(@"^[0-9]([.][0-9]{1,3})?$");
             if (regex.IsMatch(strNumero))
+                booResult = true;
+
+            return booResult;
+        }
+
+        public bool ValidateNotacionCientifica(string valor)
+        {
+            bool booResult = false;            
+            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?");
+            if (regex.IsMatch(valor))
                 booResult = true;
 
             return booResult;
