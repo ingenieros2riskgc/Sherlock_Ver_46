@@ -4,6 +4,9 @@
 .vs/ListasSarlaft/v16/Server/sqlite3/storage.ide-shm
 .vs/ListasSarlaft/v16/Server/sqlite3/storage.ide-wal
 
+*.dll
+*.cache
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
