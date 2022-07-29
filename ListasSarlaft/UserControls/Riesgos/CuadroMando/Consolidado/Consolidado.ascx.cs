@@ -885,11 +885,11 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             /**********************Filtros de Consulta****************************/
             objFiltros.intRiesgoGlobal = Convert.ToInt32(ddlRiesgoGlobal.SelectedValue);
             objFiltros.intIdCadenaValor = Convert.ToInt32(ddlCadenaValor.SelectedValue);
-            if (!ddlClasificacionGeneral.SelectedValue.Equals("---"))
+            if (!ddlClasificacionGeneral.SelectedValue.Equals("---") && !ddlClasificacionGeneral.SelectedValue.Equals(""))
             {
                 objFiltros.intIdClasificacionGeneral = Convert.ToInt32(ddlClasificacionGeneral.SelectedValue);
             }
-            if (!ddlClasificacionParticular.SelectedValue.Equals("---"))
+            if (!ddlClasificacionParticular.SelectedValue.Equals("---") && !ddlClasificacionParticular.SelectedValue.Equals(""))
             {
                 objFiltros.intIdClasificacionParticular = Convert.ToInt32(ddlClasificacionParticular.SelectedValue);
             }
@@ -1766,11 +1766,11 @@ namespace ListasSarlaft.UserControls.Riesgos.CuadroMando.Consolidado
             objFiltros.intRiesgoGlobal = Convert.ToInt32(ddlRiesgoGlobal.SelectedValue);
             objFiltros.intIdCadenaValor = Convert.ToInt32(ddlCadenaValor.SelectedValue);
 
-            if (!ddlClasificacionGeneral.SelectedValue.Equals("---"))
+            if (!ddlClasificacionGeneral.SelectedValue.Equals("---") && !ddlClasificacionGeneral.SelectedValue.Equals(""))
             {
                 objFiltros.intIdClasificacionGeneral = Convert.ToInt32(ddlClasificacionGeneral.SelectedValue);
             }
-            if (!ddlClasificacionParticular.SelectedValue.Equals("---"))
+            if (!ddlClasificacionParticular.SelectedValue.Equals("---") && !ddlClasificacionParticular.SelectedValue.Equals(""))
             {
                 objFiltros.intIdClasificacionParticular = Convert.ToInt32(ddlClasificacionParticular.SelectedValue);
             }
